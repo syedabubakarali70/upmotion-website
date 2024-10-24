@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'Adobe Garamound';
+  src: url('/fonts/Adobe Garamond LT Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Poppins-Medium';
+  src: url('/fonts/Poppins-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Poppins-Semibold';
+  src: url('/fonts/POPPINS-SEMIBOLD.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Apply the font globally */
+body {
+  font-family: 'Poppins-Medium';
+}
+
+.logo-svg{
+  filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg) brightness(118%) contrast(119%);
+}
+
+.red{
+  color:red
+}
