@@ -60,6 +60,8 @@ const Navbar = () => {
   );
 };
 
+import PropTypes from "prop-types";
+
 const NavLinkComponent = ({ name, path }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -94,6 +96,10 @@ const NavLinkComponent = ({ name, path }) => {
       )}
     </NavLink>
   );
+};
+NavLinkComponent.propTypes = {
+  name: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired,
 };
 
 export default Navbar;

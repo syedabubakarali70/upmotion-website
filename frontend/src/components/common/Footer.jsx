@@ -1,10 +1,12 @@
-import { Stack } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import Upmotion from "../icons/Upmotion";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import XIcon from "@mui/icons-material/X";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-
+import { motion } from "framer-motion";
+import Grid from "@mui/material/Grid2";
+import Hr from "./Hr";
 const socialMediaLinksColor = "var(--palette-background)";
 
 const socialMediaLinks = [
@@ -61,34 +63,73 @@ const footerLinks = [
   },
 ];
 
+const variants = {
+  initial: { y: 100, opacity: 0 },
+  animate: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      // duration: 0.5,
+      type: "spring",
+    },
+  },
+};
+
 const Footer = () => {
   return (
     <footer>
-      <Stack
-        sx={{ flexDirection: { mobile: "column", laptop: "row" } }}
-        justifyContent="space-between"
-        gap={4}
-      >
-        <Stack sx={{ width: { mobile: "100%", laptop: "30vw" } }}>
-          <Upmotion width={"140px"} />
-          <Stack flexDirection="row" gap={2}>
-            {socialMediaLinks.map(media => (
-              <a key={media.name}>
-                <Stack
-                  p={1}
-                  justifyContent="center"
-                  alignItems="center"
-                  borderRadius={"50%"}
-                  sx={{ backgroundColor: "#fff" }}
+      <motion.div variants={variants} initial="initial" animate="animate">
+        <Grid
+          container
+          columns={{ mobile: 1, tablet: 2, laptop: 4 }}
+          spacing={4}
+        >
+          <Grid
+            size={1}
+            justifyContent={{ mobile: "center", laptop: "flex-start" }}
+            sx={{ display: "flex", flexDirection: "column", gap: 2 }}
+          >
+            <Upmotion width={"140px"} />
+            <Stack flexDirection="row" gap={1}>
+              {socialMediaLinks.map(media => (
+                <a key={media.name}>
+                  <Stack
+                    p={1}
+                    justifyContent="center"
+                    alignItems="center"
+                    borderRadius={"50%"}
+                    sx={{ backgroundColor: "#fff" }}
+                  >
+                    {media.icon}
+                  </Stack>
+                </a>
+              ))}
+            </Stack>
+          </Grid>
+          {footerLinks.map(mainLinks => (
+            <Grid size={1} key={mainLinks.name}>
+              <Typography fontWeight={700} mb={2}>
+                {mainLinks.name}
+              </Typography>
+              {mainLinks.childLinks.map(link => (
+                <Typography
+                  key={link.name}
+                  mb={1}
+                  sx={{ cursor: "pointer" }}
+                  color="text-secondary"
+                  variant="body2"
                 >
-                  {media.icon}
-                </Stack>
-              </a>
-            ))}
-          </Stack>
+                  {link.name}
+                </Typography>
+              ))}
+            </Grid>
+          ))}
+        </Grid>
+        <Hr />
+        <Stack alignItems="center">
+          Copyright © 2024 Upmotion Technologies | All Rights Reserved
         </Stack>
-        <Stack></Stack>
-      </Stack>
+      </motion.div>
     </footer>
   );
 };

@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 const Upmotion = ({
   width = 502,
-  height = 110,
+  height = 40,
   color = "var(--palette-primary-main)",
 }) => {
   return (
