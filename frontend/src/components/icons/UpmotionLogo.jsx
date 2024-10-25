@@ -1,6 +1,10 @@
 import PropTypes from "prop-types";
 
-const UpmotionLogo = ({ color = "black", width = "40", height = "40" }) => (
+const UpmotionLogo = ({
+  color = "var(--palette-primary-main)",
+  width = "40",
+  height = "40",
+}) => (
   <svg
     width={width}
     height={height}
@@ -25,8 +29,8 @@ const UpmotionLogo = ({ color = "black", width = "40", height = "40" }) => (
 );
 UpmotionLogo.propTypes = {
   color: PropTypes.string,
-  width: PropTypes.string,
-  height: PropTypes.string,
+  width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 };
 
 export default UpmotionLogo;
