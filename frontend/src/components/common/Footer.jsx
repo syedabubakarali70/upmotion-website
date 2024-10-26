@@ -4,9 +4,9 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import XIcon from "@mui/icons-material/X";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import { motion } from "framer-motion";
 import Grid from "@mui/material/Grid2";
 import Hr from "./Hr";
+import { FadeUp } from "../animations";
 const socialMediaLinksColor = "var(--palette-background)";
 
 const socialMediaLinks = [
@@ -63,32 +63,15 @@ const footerLinks = [
   },
 ];
 
-const variants = {
-  initial: { y: 100, opacity: 0 },
-  animate: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      // duration: 0.5,
-      type: "spring",
-    },
-  },
-};
-
 const Footer = () => {
   return (
     <footer>
-      <motion.div variants={variants} initial="initial" animate="animate">
+      <Grid container columns={{ mobile: 1, tablet: 2, laptop: 4 }} spacing={4}>
         <Grid
-          container
-          columns={{ mobile: 1, tablet: 2, laptop: 4 }}
-          spacing={4}
+          size={1}
+          justifyContent={{ mobile: "center", laptop: "flex-start" }}
         >
-          <Grid
-            size={1}
-            justifyContent={{ mobile: "center", laptop: "flex-start" }}
-            sx={{ display: "flex", flexDirection: "column", gap: 2 }}
-          >
+          <FadeUp>
             <Upmotion width={"140px"} />
             <Stack flexDirection="row" gap={1}>
               {socialMediaLinks.map(media => (
@@ -98,16 +81,22 @@ const Footer = () => {
                     justifyContent="center"
                     alignItems="center"
                     borderRadius={"50%"}
-                    sx={{ backgroundColor: "#fff" }}
+                    sx={{
+                      backgroundColor: "#fff",
+                      border: "1px solid",
+                      borderColor: "var(--palette-primary-dark)",
+                    }}
                   >
                     {media.icon}
                   </Stack>
                 </a>
               ))}
             </Stack>
-          </Grid>
-          {footerLinks.map(mainLinks => (
-            <Grid size={1} key={mainLinks.name}>
+          </FadeUp>
+        </Grid>
+        {footerLinks.map(mainLinks => (
+          <Grid size={1} key={mainLinks.name}>
+            <FadeUp>
               <Typography fontWeight={700} mb={2}>
                 {mainLinks.name}
               </Typography>
@@ -122,14 +111,18 @@ const Footer = () => {
                   {link.name}
                 </Typography>
               ))}
-            </Grid>
-          ))}
-        </Grid>
-        <Hr />
+            </FadeUp>
+          </Grid>
+        ))}
+      </Grid>
+      <Hr />
+      <FadeUp>
         <Stack alignItems="center">
-          Copyright © 2024 Upmotion Technologies | All Rights Reserved
+          <Typography variant="body2" textAlign="center">
+            Copyright © 2024 Upmotion Technologies | All Rights Reserved
+          </Typography>
         </Stack>
-      </motion.div>
+      </FadeUp>
     </footer>
   );
 };

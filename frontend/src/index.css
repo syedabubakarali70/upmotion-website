@@ -12,12 +12,12 @@
 }
 @font-face {
   font-family: 'Poppins-Semibold';
-  src: url('/fonts/POPPINS-SEMIBOLD.TTF') format('truetype');
+  src: url('/fonts/POPPINS-SEMIBOLD.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 /* Apply the font globally */
 body {
-  font-family: 'Poppins-Medium';
+  font-family: '"Adobe Garamound","Poppins-Medium","Poppins-Semibold"';
 }

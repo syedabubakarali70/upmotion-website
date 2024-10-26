@@ -2,6 +2,7 @@ import Typography from "@mui/material/Typography";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { Underline } from "../animations";
 const links = [
   {
     name: "Home",
@@ -33,20 +34,6 @@ const navVariant = {
   animate: {
     y: 0,
     opacity: 1,
-    // transition: {
-    //   type: "tween",
-    //   ease: "easeInOut",
-    // },
-  },
-};
-
-const underlineVariants = {
-  initial: {
-    width: "0%",
-  },
-  hover: {
-    width: "100%", // Target width on hover
-    transition: { duration: 0.2, ease: "easeInOut" },
   },
 };
 
@@ -79,19 +66,36 @@ const NavLinkComponent = ({ name, path }) => {
           }}
         >
           <Typography color="var(--palette-text-primary)">{name}</Typography>
-          <motion.div
-            variants={underlineVariants}
-            initial={isActive ? "hover" : "initial"}
-            animate={!isActive && (isHovered ? "hover" : "initial")} // Control animation based on hover state?
-            style={{
-              position: "absolute",
-              // width:isActive && '100%',
-              bottom: 0,
-              left: 0,
-              height: "2px",
-              backgroundColor: "var(--palette-text-primary)",
-            }}
-          />
+          {isActive && (
+            <Underline
+              style={{
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                height: "2px",
+                backgroundColor: "var(--palette-text-primary)",
+                width: "100%",
+              }}
+              duration={0.5}
+              layout="position"
+              layoutId="underline"
+            ></Underline>
+          )}
+          {!isActive && isHovered && (
+            <Underline
+              initial="initial"
+              animate={isActive ? "animate" : isHovered ? "animate" : "initial"}
+              style={{
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                height: "2px",
+                backgroundColor: "var(--palette-text-primary)",
+              }}
+              duration={0.2}
+              extraAnimationProps={{ ease: "easeInOut" }}
+            ></Underline>
+          )}
         </motion.div>
       )}
     </NavLink>

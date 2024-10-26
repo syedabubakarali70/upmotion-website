@@ -37,7 +37,7 @@ const Header = () => {
         alignItems="center"
       >
         <Stack flexDirection="row" gap={1} alignItems={"center"}>
-          <Upmotion color={theme.palette.logo.main} width={120} height={40} />
+          <Upmotion color={theme.palette.logo.main} width={140} height={40} />
         </Stack>
         <motion.div
           initial="initial"
@@ -84,9 +84,15 @@ const Header = () => {
           sx={{ height: "100%", width: "33vw", minWidth: "250px" }}
           pt={8}
         >
-          <Stack gap={2}>
-            <Navbar />
-          </Stack>
+          <motion.div
+            initial="initial"
+            whileInView="animate"
+            transition={{ staggerChildren: 0.05 }}
+          >
+            <Stack gap={2}>
+              <Navbar />
+            </Stack>
+          </motion.div>
           <ContactUs />
         </Stack>
       </Drawer>
