@@ -4,7 +4,7 @@ let theme = createTheme({
   // cssVarPrefix: "",
   cssVariables: { cssVarPrefix: "" },
   palette: {
-    mode: "dark",
+    mode: "light",
     primary: {
       mainChannel: "20,96,231",
       darkChannel: "9,28, 56",

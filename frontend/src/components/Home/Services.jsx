@@ -47,17 +47,17 @@ const Services = () => {
         Featured Services
       </Typography>
       <Typography variant="body1" textAlign="center" mb={4}>
-        Pixelette Technologies delivers specialised services designed to enhance
+        Upmotion Technologies delivers specialised services designed to enhance
         your digital transformation journey.
       </Typography>
-      <Grid columns={{ mobie: 1, tablet: 2, laptop: 3 }} container spacing={3}>
+      <Grid columns={{ mobile: 1, tablet: 2, laptop: 3 }} container spacing={3}>
         {services.map((service, index) => (
           <MotionGrid
             // custom={index}
             variants={fadeUpVariants}
             initial="initial"
             whileInView="whileInView"
-            viewport={{ once: staggerParentValues.once, amount: 0.5 }}
+            viewport={{ once: staggerParentValues.once }}
             key={service.heading}
             size={1}
             sx={{
@@ -70,7 +70,7 @@ const Services = () => {
             }}
           >
             {service.icon}
-            <Typography fontWeight={700} variant="h6">
+            <Typography fontWeight={700} variant="h5">
               {service.heading}
             </Typography>
             <Typography>{service.content}</Typography>

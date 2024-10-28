@@ -56,7 +56,7 @@ const footerLinks = [
   {
     name: "Contact Us",
     childLinks: [
-      { name: "sales@pixelettetech.com" },
+      { name: "sales@upmotiontech.com" },
       { name: "+44 2045188226" },
       { name: "+1 7732709034" },
       { name: "71-75 Shelton Street, WC2 H9J, London, UK (Headquarter)" },

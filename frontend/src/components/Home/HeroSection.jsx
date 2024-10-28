@@ -1,11 +1,11 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import RotatingLogo from "../icons/RotatingImage";
 import { FadeUp, ScaleIn } from "../animations";
 
 const HeroSection = () => {
   return (
     <Stack
-      py={8}
+      py={{ mobile: 6, tablet: 8 }}
       alignItems="center"
       component="section"
       gap={2}

@@ -5,7 +5,7 @@ const PaddingBlock = ({
   paddingBlock = { mobile: 2, tablet: 4, laptop: 6, desktop: 10 },
 }) => {
   return (
-    <Box component="section" marginBlock={paddingBlock}>
+    <Box component="section" paddingBlock={paddingBlock}>
       {children}
     </Box>
   );

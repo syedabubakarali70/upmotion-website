@@ -25,6 +25,28 @@ export const fadeDownVariants = {
     },
   },
 };
+export const fadeRightVariants = {
+  initial: { x: -100, opacity: 0 },
+  whileInView: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      type,
+      duration,
+    },
+  },
+};
+export const fadeLeftVariants = {
+  initial: { x: 100, opacity: 0 },
+  whileInView: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      type,
+      duration,
+    },
+  },
+};
 
 export const scaleInVariants = {
   initial: {
