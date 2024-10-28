@@ -3,6 +3,9 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Underline } from "../animations";
+import PropTypes from "prop-types";
+import { fadeDownVariants } from "../animations/variants";
+
 const links = [
   {
     name: "Home",
@@ -26,17 +29,6 @@ const links = [
   },
 ];
 
-const navVariant = {
-  initial: {
-    y: -100,
-    opacity: 0,
-  },
-  animate: {
-    y: 0,
-    opacity: 1,
-  },
-};
-
 const Navbar = () => {
   return (
     <>
@@ -47,8 +39,6 @@ const Navbar = () => {
   );
 };
 
-import PropTypes from "prop-types";
-
 const NavLinkComponent = ({ name, path }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -56,7 +46,7 @@ const NavLinkComponent = ({ name, path }) => {
     <NavLink to={path}>
       {({ isActive }) => (
         <motion.div
-          variants={navVariant}
+          variants={fadeDownVariants}
           onHoverStart={() => setIsHovered(true)}
           onHoverEnd={() => setIsHovered(false)}
           style={{
@@ -66,7 +56,7 @@ const NavLinkComponent = ({ name, path }) => {
           }}
         >
           <Typography color="var(--palette-text-primary)">{name}</Typography>
-          {isActive && (
+          {/* {isActive && (
             <Underline
               style={{
                 position: "absolute",
@@ -76,10 +66,25 @@ const NavLinkComponent = ({ name, path }) => {
                 backgroundColor: "var(--palette-text-primary)",
                 width: "100%",
               }}
-              duration={0.5}
+              duration={5}
+              layoutId="underline"
+              type="tween"
+            ></Underline>
+          )} */}
+          {isActive && (
+            <motion.div
+              style={{
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                backgroundColor: "var(--palette-text-primary)",
+                height: "2px",
+                width: "100%",
+              }}
+              transition={{ duration: 0.5, type: "spring" }}
               layout="position"
               layoutId="underline"
-            ></Underline>
+            ></motion.div>
           )}
           {!isActive && isHovered && (
             <Underline
@@ -90,7 +95,7 @@ const NavLinkComponent = ({ name, path }) => {
                 bottom: 0,
                 left: 0,
                 height: "2px",
-                backgroundColor: "var(--palette-text-primary)",
+                backgroundColor: "var(--palette-text-secondary)",
               }}
               duration={0.2}
               extraAnimationProps={{ ease: "easeInOut" }}

@@ -1,5 +1,10 @@
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
+import {
+  duration as defaultDuration,
+  type as defaultType,
+  once as defaultOnce,
+} from "./variants";
 
 const withAnimation = variants => {
   const AnimatedComponent = ({
@@ -8,11 +13,12 @@ const withAnimation = variants => {
     initial = "initial",
     animate = "animate",
     whileInView = "whileInView",
-    duration = 0.5,
-    type = "spring",
+    duration = defaultDuration,
+    type = defaultType,
     extraAnimationProps = {},
     layout = false,
     layoutId,
+    once = defaultOnce,
   }) => {
     // const updatedVariants = {
     //   ...variants,
@@ -39,7 +45,7 @@ const withAnimation = variants => {
         animate={animate}
         transition={{ duration, type, ...extraAnimationProps }}
         whileInView={whileInView}
-        viewport={{ once: true }}
+        viewport={{ once }}
         layout={layout}
         layoutId={layoutId}
         style={style}
@@ -59,7 +65,11 @@ const withAnimation = variants => {
     animate: PropTypes.string,
     whileInView: PropTypes.string,
     layoutId: PropTypes.string,
-    layout: PropTypes.bool,
+    once: PropTypes.bool,
+    layout: PropTypes.oneOfType([
+      PropTypes.bool,
+      PropTypes.oneOf(["position", "size", "preserve-aspect"]),
+    ]),
   };
 
   return AnimatedComponent;

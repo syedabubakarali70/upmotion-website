@@ -6,7 +6,9 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Grid from "@mui/material/Grid2";
 import Hr from "./Hr";
-import { FadeUp } from "../animations";
+import { FadeUp, StaggerParent } from "../animations";
+import { motion } from "framer-motion";
+import { fadeUpVariants } from "../animations/variants";
 const socialMediaLinksColor = "var(--palette-background)";
 
 const socialMediaLinks = [
@@ -37,7 +39,7 @@ const footerLinks = [
     childLinks: [
       { name: "About Us" },
       { name: "Case Studies" },
-      { name: "Pixelette Research" },
+      { name: "Upmotion Research" },
       { name: "Start-Ups" },
     ],
   },
@@ -66,52 +68,65 @@ const footerLinks = [
 const Footer = () => {
   return (
     <footer>
-      <Grid container columns={{ mobile: 1, tablet: 2, laptop: 4 }} spacing={4}>
+      <Grid
+        container
+        columns={{ mobile: 1, tablet: 2, laptop: 4 }}
+        spacing={4}
+        borderTop={"1px solid var(--palette-text-secondary)"}
+        py={4}
+      >
         <Grid
           size={1}
           justifyContent={{ mobile: "center", laptop: "flex-start" }}
         >
           <FadeUp>
             <Upmotion width={"140px"} />
-            <Stack flexDirection="row" gap={1}>
-              {socialMediaLinks.map(media => (
-                <a key={media.name}>
-                  <Stack
-                    p={1}
-                    justifyContent="center"
-                    alignItems="center"
-                    borderRadius={"50%"}
-                    sx={{
-                      backgroundColor: "#fff",
-                      border: "1px solid",
-                      borderColor: "var(--palette-primary-dark)",
-                    }}
-                  >
-                    {media.icon}
-                  </Stack>
-                </a>
-              ))}
-            </Stack>
+            <StaggerParent>
+              <Stack flexDirection="row" gap={1}>
+                {socialMediaLinks.map(media => (
+                  <a key={media.name}>
+                    <motion.div variants={fadeUpVariants}>
+                      <Stack
+                        p={1}
+                        justifyContent="center"
+                        alignItems="center"
+                        borderRadius={"50%"}
+                        sx={{
+                          backgroundColor: "#fff",
+                          border: "1px solid",
+                          borderColor: "var(--palette-primary-dark)",
+                        }}
+                      >
+                        {media.icon}
+                      </Stack>
+                    </motion.div>
+                  </a>
+                ))}
+              </Stack>
+            </StaggerParent>
           </FadeUp>
         </Grid>
         {footerLinks.map(mainLinks => (
           <Grid size={1} key={mainLinks.name}>
-            <FadeUp>
-              <Typography fontWeight={700} mb={2}>
-                {mainLinks.name}
-              </Typography>
-              {mainLinks.childLinks.map(link => (
-                <Typography
-                  key={link.name}
-                  mb={1}
-                  sx={{ cursor: "pointer" }}
-                  color="text-secondary"
-                  variant="body2"
-                >
-                  {link.name}
+            <StaggerParent>
+              <motion.div variants={fadeUpVariants}>
+                <Typography fontWeight={700} mb={2}>
+                  {mainLinks.name}
                 </Typography>
+              </motion.div>
+              {mainLinks.childLinks.map(link => (
+                <motion.div variants={fadeUpVariants} key={link.name}>
+                  <Typography
+                    mb={1}
+                    sx={{ cursor: "pointer" }}
+                    color="text-secondary"
+                    variant="body2"
+                  >
+                    {link.name}
+                  </Typography>
+                </motion.div>
               ))}
-            </FadeUp>
+            </StaggerParent>
           </Grid>
         ))}
       </Grid>

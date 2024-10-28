@@ -5,14 +5,13 @@ import { FadeUp, ScaleIn } from "../animations";
 const HeroSection = () => {
   return (
     <Stack
-      py={12}
+      py={8}
       alignItems="center"
-      borderTop="1px solid"
       component="section"
       gap={2}
       sx={{ position: "relative", overflow: "hidden" }}
     >
-      <Box
+      {/* <Box
         sx={{
           position: "absolute",
           top: 0,
@@ -20,7 +19,6 @@ const HeroSection = () => {
           width: "100%",
           height: "100%",
           zIndex: -200,
-          //   border: "1px solid white",
         }}
       >
         <RotatingLogo top="10%" right="20%" />
@@ -29,13 +27,13 @@ const HeroSection = () => {
         <RotatingLogo top="80%" right="20%" />
         <RotatingLogo top="50%" left="10%" />
         <RotatingLogo top="80%" left="20%" />
-      </Box>
+      </Box> */}
       <ScaleIn>
-        <Typography variant="h1" textAlign="center" fontWeight={700}>
+        <Typography variant="h1" textAlign="center">
           Upmotion Tech
         </Typography>
       </ScaleIn>
-      <FadeUp style={{ width: "100%" }}>
+      <FadeUp style={{ width: "100%", opacity: 1 }}>
         <Typography
           variant="body1"
           sx={{ width: "70%", textAlign: "center", mx: "auto" }}

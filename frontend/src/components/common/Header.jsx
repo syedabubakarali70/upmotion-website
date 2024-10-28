@@ -8,9 +8,9 @@ import {
 } from "@mui/material";
 import Upmotion from "../icons/Upmotion";
 import Navbar from "./Navbar";
-import { motion } from "framer-motion";
 import { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
+import { StaggerParent } from "../animations";
 
 const ContactUs = () => {
   return <Button variant="contained">Contact us</Button>;
@@ -39,11 +39,7 @@ const Header = () => {
         <Stack flexDirection="row" gap={1} alignItems={"center"}>
           <Upmotion color={theme.palette.logo.main} width={140} height={40} />
         </Stack>
-        <motion.div
-          initial="initial"
-          whileInView="animate"
-          transition={{ staggerChildren: 0.05 }}
-        >
+        <StaggerParent>
           <Stack
             flexDirection="row"
             gap={4}
@@ -51,7 +47,7 @@ const Header = () => {
           >
             <Navbar />
           </Stack>
-        </motion.div>
+        </StaggerParent>
         <Box
           sx={{
             display: {
@@ -84,15 +80,11 @@ const Header = () => {
           sx={{ height: "100%", width: "33vw", minWidth: "250px" }}
           pt={8}
         >
-          <motion.div
-            initial="initial"
-            whileInView="animate"
-            transition={{ staggerChildren: 0.05 }}
-          >
+          <StaggerParent staggerDirection={-1}>
             <Stack gap={2}>
               <Navbar />
             </Stack>
-          </motion.div>
+          </StaggerParent>
           <ContactUs />
         </Stack>
       </Drawer>
