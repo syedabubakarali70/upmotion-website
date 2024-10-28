@@ -53,11 +53,11 @@ const Services = () => {
       <Grid columns={{ mobie: 1, tablet: 2, laptop: 3 }} container spacing={3}>
         {services.map((service, index) => (
           <MotionGrid
-            custom={index}
+            // custom={index}
             variants={fadeUpVariants}
             initial="initial"
             whileInView="whileInView"
-            viewport={{ once: staggerParentValues.once }}
+            viewport={{ once: staggerParentValues.once, amount: 0.5 }}
             key={service.heading}
             size={1}
             sx={{

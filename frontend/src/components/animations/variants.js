@@ -9,7 +9,7 @@ export const fadeUpVariants = {
     y: 0,
     opacity: 1,
     transition: {
-      delay: index * staggerParentValues.staggerDuration,
+      // delay: index ? index * staggerParentValues.staggerDuration : null,
       type,
       duration,
     },

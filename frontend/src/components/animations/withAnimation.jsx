@@ -45,7 +45,7 @@ const withAnimation = variants => {
         animate={animate}
         transition={{ duration, type, ...extraAnimationProps }}
         whileInView={whileInView}
-        viewport={{ once }}
+        viewport={{ once, amount: 0.5 }}
         layout={layout}
         layoutId={layoutId}
         style={style}
