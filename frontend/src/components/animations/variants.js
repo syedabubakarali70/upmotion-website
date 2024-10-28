@@ -1,4 +1,3 @@
-import { staggerParentValues } from "./StaggerParent";
 export const duration = 0.5;
 export const type = "spring";
 export const once = true;
