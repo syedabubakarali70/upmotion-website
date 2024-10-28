@@ -1,11 +1,4 @@
-import {
-  Box,
-  Button,
-  Drawer,
-  IconButton,
-  Stack,
-  useTheme,
-} from "@mui/material";
+import { Box, Button, Drawer, IconButton, Stack } from "@mui/material";
 import Upmotion from "../icons/Upmotion";
 import Navbar from "./Navbar";
 import { useState } from "react";
@@ -17,7 +10,6 @@ const ContactUs = () => {
 };
 
 const Header = () => {
-  const theme = useTheme();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const toggleDrawer = open => event => {
     if (
@@ -37,7 +29,7 @@ const Header = () => {
         alignItems="center"
       >
         <Stack flexDirection="row" gap={1} alignItems={"center"}>
-          <Upmotion color={theme.palette.logo.main} width={140} height={40} />
+          <Upmotion width={140} height={40} />
         </Stack>
         <StaggerParent>
           <Stack

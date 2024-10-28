@@ -1,9 +1,10 @@
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
 let theme = createTheme({
+  // cssVarPrefix: "",
   cssVariables: { cssVarPrefix: "" },
   palette: {
-    mode: "light",
+    mode: "dark",
     primary: {
       mainChannel: "20,96,231",
       darkChannel: "9,28, 56",
@@ -35,8 +36,26 @@ let theme = createTheme({
     },
   },
   typography: {
+    h1: {
+      fontFamily: "'AGaramond LT', serif",
+    },
+    h2: {
+      fontFamily: "'AGaramond LT', serif",
+    },
+    h3: {
+      fontFamily: "'AGaramond LT', serif",
+    },
+    h4: {
+      fontFamily: "'AGaramond LT', serif",
+    },
+    h5: {
+      fontFamily: "'AGaramond LT', serif",
+    },
+    h6: {
+      fontFamily: "'AGaramond LT', serif",
+    },
     allVariants: {
-      fontFamily: "'Adobe Garamound', 'Poppins-Medium'",
+      fontFamily: "'Poppins-Medium', 'Poppins-Semibold', sans-serif",
     },
   },
   components: {
@@ -63,7 +82,7 @@ let theme = createTheme({
         },
         contained: {
           boxShadow: "none",
-          color: "#fff",
+          // color: "#fff",
           backgroundColor: "var(--palette-primary-main)",
           "&:hover": {
             boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
