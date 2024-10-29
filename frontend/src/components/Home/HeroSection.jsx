@@ -1,5 +1,5 @@
 import { Stack, Typography } from "@mui/material";
-import RotatingLogo from "../icons/RotatingImage";
+// import RotatingLogo from "../icons/RotatingImage";
 import { FadeUp, ScaleIn } from "../animations";
 
 const HeroSection = () => {

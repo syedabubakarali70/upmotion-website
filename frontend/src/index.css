@@ -25,6 +25,5 @@
 
 /* Apply the font globally */
 body {
-  font-family: "AGaramond LT", "Poppins Medium", "Poppins Semibold" !important;
-  background-color: rgb(var(--palette-primary-main));
+overflow-x: hidden;  background-color: rgb(var(--palette-primary-main));
 }

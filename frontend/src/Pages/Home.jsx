@@ -1,3 +1,4 @@
+import ContactUs from "../components/Home/ContactUs";
 import HeroSection from "../components/Home/HeroSection";
 import Partners from "../components/Home/Partners";
 import Services from "../components/Home/Services";
@@ -10,6 +11,7 @@ const Home = () => {
       <Partners />
       <Services />
       <Testimonials />
+      <ContactUs />
     </>
   );
 };

@@ -51,9 +51,8 @@ const Services = () => {
         your digital transformation journey.
       </Typography>
       <Grid columns={{ mobile: 1, tablet: 2, laptop: 3 }} container spacing={3}>
-        {services.map((service, index) => (
+        {services.map(service => (
           <MotionGrid
-            // custom={index}
             variants={fadeUpVariants}
             initial="initial"
             whileInView="whileInView"

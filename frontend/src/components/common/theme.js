@@ -58,7 +58,19 @@ let theme = createTheme({
       fontFamily: "'Poppins-Medium', 'Poppins-Semibold', sans-serif",
     },
   },
+
   components: {
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          "& .MuiOutlinedInput-root": {
+            "& fieldset": {
+              borderColor: "var(--palette-text-primary)",
+            },
+          },
+        },
+      },
+    },
     MuiButtonBase: {
       defaultProps: {
         // The props to change the default for.
@@ -82,7 +94,7 @@ let theme = createTheme({
         },
         contained: {
           boxShadow: "none",
-          // color: "#fff",
+          color: "#fff",
           backgroundColor: "var(--palette-primary-main)",
           "&:hover": {
             boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",

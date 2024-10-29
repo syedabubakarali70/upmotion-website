@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import PropTypes from "prop-types";
 const PaddingBlock = ({
   children,
-  paddingBlock = { mobile: 2, tablet: 4, laptop: 6, desktop: 10 },
+  paddingBlock = { mobile: 2, tablet: 4, laptop: 6, desktop: 8 },
 }) => {
   return (
     <Box component="section" paddingBlock={paddingBlock}>

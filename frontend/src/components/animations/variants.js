@@ -4,7 +4,7 @@ export const once = true;
 
 export const fadeUpVariants = {
   initial: { y: 100, opacity: 0 },
-  whileInView: (index = 0) => ({
+  whileInView: {
     y: 0,
     opacity: 1,
     transition: {
@@ -12,7 +12,7 @@ export const fadeUpVariants = {
       type,
       duration,
     },
-  }),
+  },
 };
 export const fadeDownVariants = {
   initial: { y: -100, opacity: 0 },
