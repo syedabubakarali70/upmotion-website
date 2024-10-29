@@ -5,10 +5,11 @@ import { FadeUp, ScaleIn } from "../animations";
 const HeroSection = () => {
   return (
     <Stack
-      py={{ mobile: 6, tablet: 8 }}
       alignItems="center"
       component="section"
-      gap={2}
+      justifyContent="center"
+      height="calc(90vh - 60px)"
+      gap={4}
       sx={{ position: "relative", overflow: "hidden" }}
     >
       {/* <Box
@@ -29,11 +30,23 @@ const HeroSection = () => {
         <RotatingLogo top="80%" left="20%" />
       </Box> */}
       <ScaleIn>
-        <Typography variant="h1" textAlign="center">
-          Upmotion Tech
+        <Typography
+          variant="h1"
+          textAlign="center"
+          sx={{
+            fontSize: {
+              laptop: "4rem",
+            },
+            lineHeight: {
+              mobile: "3rem",
+              laptop: "5rem",
+            },
+          }}
+        >
+          Leading the way in Web and App Development
         </Typography>
       </ScaleIn>
-      <FadeUp style={{ width: "100%", opacity: 1 }}>
+      <FadeUp style={{ width: "100%" }}>
         <Typography
           variant="body1"
           sx={{ width: "70%", textAlign: "center", mx: "auto" }}

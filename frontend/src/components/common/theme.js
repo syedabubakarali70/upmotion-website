@@ -1,7 +1,6 @@
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
 let theme = createTheme({
-  // cssVarPrefix: "",
   cssVariables: { cssVarPrefix: "" },
   palette: {
     mode: "light",

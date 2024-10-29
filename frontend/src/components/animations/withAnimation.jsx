@@ -4,6 +4,7 @@ import {
   duration as defaultDuration,
   type as defaultType,
   once as defaultOnce,
+  amount as defaultAmount,
 } from "./variants";
 
 const withAnimation = variants => {
@@ -18,37 +19,23 @@ const withAnimation = variants => {
     extraAnimationProps = {},
     layout = false,
     layoutId,
+    margin = "0px",
+    amount = defaultAmount,
     once = defaultOnce,
   }) => {
-    // const updatedVariants = {
-    //   ...variants,
-    //   whileInView: variants.whileInView && {
-    //     ...variants[whileInView],
-    //     transition: {
-    //       ...variants.whileInView.transition,
-    //       ...extraAnimationProps,
-    //     },
-    //   },
-    //   animate: variants[animate] && {
-    //     ...variants[animate],
-    //     transition: {
-    //       ...variants.animate.transition,
-    //       ...extraAnimationProps,
-    //     },
-    //   },
-    // };
-
     return (
       <motion.div
         variants={variants}
         initial={initial}
         animate={animate}
-        transition={{ duration, type, ...extraAnimationProps }}
         whileInView={whileInView}
-        viewport={{ once }}
+        transition={{ duration, type, ...extraAnimationProps }}
+        viewport={{ once, amount, margin }}
         layout={layout}
         layoutId={layoutId}
-        style={style}
+        style={{
+          ...style,
+        }}
       >
         {children}
       </motion.div>
@@ -64,8 +51,13 @@ const withAnimation = variants => {
     initial: PropTypes.string,
     animate: PropTypes.string,
     whileInView: PropTypes.string,
+    margin: PropTypes.string,
     layoutId: PropTypes.string,
     once: PropTypes.bool,
+    amount: PropTypes.oneOfType([
+      PropTypes.oneOf(["all", "some"]),
+      PropTypes.number,
+    ]),
     layout: PropTypes.oneOfType([
       PropTypes.bool,
       PropTypes.oneOf(["position", "size", "preserve-aspect"]),

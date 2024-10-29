@@ -5,6 +5,7 @@ import UpmotionLogo from "../icons/UpmotionLogo";
 import { motion } from "framer-motion";
 import { fadeUpVariants } from "../animations/variants";
 import { staggerParentValues } from "../animations/StaggerParent";
+import shadows from "@mui/material/styles/shadows";
 
 const MotionGrid = motion.create(Grid);
 
@@ -56,6 +57,7 @@ const Services = () => {
             variants={fadeUpVariants}
             initial="initial"
             whileInView="whileInView"
+            whileHover={{ y: -10 }}
             viewport={{ once: staggerParentValues.once }}
             key={service.heading}
             size={1}
@@ -66,6 +68,9 @@ const Services = () => {
               border: "1px solid var(--palette-text-primary)",
               p: 2,
               borderRadius: 4,
+              ":hover": {
+                boxShadow: shadows[24],
+              },
             }}
           >
             {service.icon}

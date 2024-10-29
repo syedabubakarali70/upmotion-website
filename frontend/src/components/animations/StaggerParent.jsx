@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import { motion } from "framer-motion";
-
+import { once as defaultOnce } from "./variants";
 export const staggerParentValues = {
   staggerDuration: 0.05,
-  once: true,
+  once: defaultOnce,
   staggerDirection: 1,
 };
 

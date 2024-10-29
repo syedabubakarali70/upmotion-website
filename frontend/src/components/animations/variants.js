@@ -1,6 +1,7 @@
-export const duration = 0.5;
+export const duration = 1;
 export const type = "spring";
-export const once = true;
+export const once = false;
+export const amount = "some";
 
 export const fadeUpVariants = {
   initial: { y: 100, opacity: 0 },
@@ -8,7 +9,6 @@ export const fadeUpVariants = {
     y: 0,
     opacity: 1,
     transition: {
-      // delay: index ? index * staggerParentValues.staggerDuration : null,
       type,
       duration,
     },
@@ -48,6 +48,17 @@ export const fadeLeftVariants = {
   },
 };
 
+export const flipLeftVariants = {
+  initial: {
+    rotateY: -90,
+    opacity: 0,
+  },
+  whileInView: {
+    rotateY: 0,
+    opacity: 1,
+  },
+};
+
 export const scaleInVariants = {
   initial: {
     scale: 2,
@@ -56,10 +67,10 @@ export const scaleInVariants = {
   whileInView: {
     scale: 1,
     opacity: 1,
-    transition: {
-      type,
-      duration,
-    },
+    // transition: {
+    //   type,
+    //   duration,
+    // },
   },
 };
 

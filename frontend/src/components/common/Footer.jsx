@@ -6,7 +6,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import Grid from "@mui/material/Grid2";
 import Hr from "./Hr";
-import { FadeUp, StaggerParent } from "../animations";
+import { FadeUp, FlipLeft, StaggerParent } from "../animations";
 import { motion } from "framer-motion";
 import { fadeUpVariants } from "../animations/variants";
 const socialMediaLinksColor = "var(--palette-background)";
@@ -79,8 +79,14 @@ const Footer = () => {
           size={1}
           justifyContent={{ mobile: "center", laptop: "flex-start" }}
         >
-          <FadeUp>
+          <FlipLeft
+            style={{ width: "140px" }}
+            type="tween"
+            extraAnimationProps={{ ease: "easeInOut" }}
+          >
             <Upmotion width={"140px"} />
+          </FlipLeft>
+          <FadeUp>
             <StaggerParent>
               <Stack flexDirection="row" gap={1}>
                 {socialMediaLinks.map(media => (
@@ -108,36 +114,32 @@ const Footer = () => {
         </Grid>
         {footerLinks.map(mainLinks => (
           <Grid size={1} key={mainLinks.name}>
-            <StaggerParent>
-              <motion.div variants={fadeUpVariants}>
-                <Typography fontWeight={700} mb={2}>
-                  {mainLinks.name}
+            <FadeUp>
+              <Typography fontWeight={700} mb={2}>
+                {mainLinks.name}
+              </Typography>
+            </FadeUp>
+            {mainLinks.childLinks.map(link => (
+              <FadeUp key={link.name} amount={0} margin={"1900px 0px 0px 0px"}>
+                <Typography
+                  mb={1}
+                  sx={{ cursor: "pointer" }}
+                  color="text-secondary"
+                  variant="body2"
+                >
+                  {link.name}
                 </Typography>
-              </motion.div>
-              {mainLinks.childLinks.map(link => (
-                <motion.div variants={fadeUpVariants} key={link.name}>
-                  <Typography
-                    mb={1}
-                    sx={{ cursor: "pointer" }}
-                    color="text-secondary"
-                    variant="body2"
-                  >
-                    {link.name}
-                  </Typography>
-                </motion.div>
-              ))}
-            </StaggerParent>
+              </FadeUp>
+            ))}
           </Grid>
         ))}
       </Grid>
       <Hr />
-      <FadeUp>
-        <Stack alignItems="center">
-          <Typography variant="body2" textAlign="center">
-            Copyright © 2024 Upmotion Technologies | All Rights Reserved
-          </Typography>
-        </Stack>
-      </FadeUp>
+      <Stack alignItems="center">
+        <Typography variant="body2" textAlign="center">
+          Copyright © 2024 Upmotion Technologies | All Rights Reserved
+        </Typography>
+      </Stack>
     </footer>
   );
 };

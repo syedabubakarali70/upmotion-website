@@ -19,11 +19,8 @@
   font-style: normal;
 }
 
-/* :root{
-  --palette-primary-main:220,30,10
-} */
-
 /* Apply the font globally */
-body {
-overflow-x: hidden;  background-color: rgb(var(--palette-primary-main));
+html,body {
+overflow-x: hidden;  
+
 }

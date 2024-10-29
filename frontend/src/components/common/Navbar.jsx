@@ -81,7 +81,7 @@ const NavLinkComponent = ({ name, path }) => {
                 height: "2px",
                 width: "100%",
               }}
-              transition={{ duration: 0.5, type: "spring" }}
+              transition={{ type: "spring", bounce: 0.2 }}
               layout="position"
               layoutId="underline"
             ></motion.div>
