@@ -1,4 +1,5 @@
 import ContactUs from "../components/Home/ContactUs";
+import DiscoverSection from "../components/Home/DiscoverSection";
 import HeroSection from "../components/Home/HeroSection";
 import Partners from "../components/Home/Partners";
 import Services from "../components/Home/Services";
@@ -9,6 +10,7 @@ const Home = () => {
     <>
       <HeroSection />
       <Partners />
+      <DiscoverSection />
       <Services />
       <Testimonials />
       <ContactUs />

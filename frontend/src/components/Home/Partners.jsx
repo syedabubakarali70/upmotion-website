@@ -9,7 +9,7 @@ const Partners = () => {
     <FadeUp>
       <PaddingBlock>
         <Typography variant="h2" textAlign="center" mb={2}>
-          Out Trusted Partners
+          Our Trusted Partners
         </Typography>
         <Marquee autoFill>
           <Box mx={6}>

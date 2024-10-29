@@ -9,6 +9,7 @@ const ContactUs = () => {
         gap={4}
         sx={{
           flexDirection: { mobile: "column", tablet: "row" },
+          overflowX: "hidden",
         }}
       >
         <Stack
