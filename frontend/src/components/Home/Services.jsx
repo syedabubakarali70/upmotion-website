@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { fadeUpVariants } from "../animations/variants";
 import { staggerParentValues } from "../animations/StaggerParent";
 import shadows from "@mui/material/styles/shadows";
+import GridContainer from "../common/GridContainer";
 
 const MotionGrid = motion.create(Grid);
 
@@ -51,7 +52,7 @@ const Services = () => {
         Upmotion Technologies delivers specialised services designed to enhance
         your digital transformation journey.
       </Typography>
-      <Grid columns={{ mobile: 1, tablet: 2, laptop: 3 }} container spacing={3}>
+      <GridContainer>
         {services.map(service => (
           <MotionGrid
             variants={fadeUpVariants}
@@ -81,7 +82,7 @@ const Services = () => {
             <Typography>{service.content}</Typography>
           </MotionGrid>
         ))}
-      </Grid>
+      </GridContainer>
     </PaddingBlock>
   );
 };

@@ -43,7 +43,11 @@ const ContactUs = () => {
               gap={2}
             >
               <Typography variant="h3">Book a Discovery Session</Typography>
-              <Stack flexDirection="row" gap={1}>
+              <Stack
+                flexDirection="row"
+                gap={1}
+                sx={{ flexDirection: { mobile: "column", laptop: "row" } }}
+              >
                 <LabelledInput
                   label="Full Name"
                   placeholder="Enter your full name"

@@ -95,7 +95,7 @@ const Testimonials = () => {
                     height: 200,
                     overflow: "hidden",
                     justifyContent: "space-between",
-                    mx: { mobile: "1px", tablet: 0 },
+                    m: "1px",
                   }}
                 >
                   <Stack flexDirection="row" gap={1}>
