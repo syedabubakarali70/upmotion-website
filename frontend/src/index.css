@@ -1,23 +1,28 @@
 @font-face {
   font-family: 'AGaramond LT';
   src: url('/fonts/AGaramondLT-Bold.woff2') format('woff2'),
-      url('/fonts/AGaramondLT-Bold.woff') format('woff');
+       url('/fonts/AGaramondLT-Bold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
-  font-display: swap;
+  font-display: optional; /* Wait for custom font instead of showing fallback */
 }
+
 @font-face {
   font-family: 'Poppins-Medium';
   src: url('/fonts/Poppins-Medium.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+  font-display: optional;
 }
+
 @font-face {
   font-family: 'Poppins-Semibold';
   src: url('/fonts/POPPINS-SEMIBOLD.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+  font-display: optional;
 }
+
 
 /* Apply the font globally */
 body {

@@ -1,7 +1,7 @@
 import { IconButton, Stack, Typography, useMediaQuery } from "@mui/material";
 import PaddingBlock from "../common/PaddingBlock";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 import Rating from "@mui/material/Rating";
 import { useTheme } from "@mui/material/styles";
 import { useRef } from "react";
@@ -50,7 +50,7 @@ const reviews = [
 
 function getInitials(name) {
   const names = name.trim().split(" ");
-  if (names.length < 2) return names[0][0].toUpperCase(); // For single name case
+  if (names.length < 2) return names[0][0].toUpperCase();
 
   const firstInitial = names[0][0].toUpperCase();
   const lastInitial = names[names.length - 1][0].toUpperCase();
@@ -59,7 +59,7 @@ function getInitials(name) {
 }
 
 const Testimonials = () => {
-  const swiperRef = useRef(null); // Create a ref for Swiper instance
+  const swiperRef = useRef(null);
   const theme = useTheme();
 
   const isMobile = useMediaQuery(theme.breakpoints.down("tablet"));
@@ -79,9 +79,10 @@ const Testimonials = () => {
             onSwiper={swiper => {
               swiperRef.current = swiper;
             }}
+            autoplay={{ delay: 5000, disableOnInteraction: false }}
             spaceBetween={24}
             slidesPerView={slidesPerView}
-            modules={[Navigation]}
+            modules={[Navigation, Autoplay]}
             style={{ width: "100%" }}
           >
             {reviews.map((review, index) => (
