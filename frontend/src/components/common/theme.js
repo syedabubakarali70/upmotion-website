@@ -40,6 +40,7 @@ let theme = createTheme({
     },
     h2: {
       fontFamily: "'AGaramond LT', serif",
+      fontWeight: 500,
     },
     h3: {
       fontFamily: "'AGaramond LT', serif",
@@ -87,16 +88,22 @@ let theme = createTheme({
       styleOverrides: {
         root: {
           color: "var(-palette-text-primary)",
-          padding: "6px 12px",
+          padding: "10px 20px",
           borderRadius: "999px",
           textTransform: "none",
         },
         contained: {
           boxShadow: "none",
           color: "#fff",
-          backgroundColor: "var(--palette-primary-main)",
+          backgroundColor: "rgba(var(--palette-primary-mainChannel), 0.9)",
           "&:hover": {
-            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
+            backgroundColor: "rgb(var(--palette-primary-mainChannel))",
+            boxShadow:
+              "0 0.75rem 1.5rem rgba(var(--palette-primary-mainChannel), 0.5)",
+          },
+          ":focus": {
+            boxShadow:
+              "0 0 0 3px rgba(var(--palette-primary-mainChannel), 0.4)",
           },
         },
         outlined: {

@@ -10,31 +10,37 @@ const stats = [
     value: 200,
     title: "Projects Completed",
     unit: plus,
+    duration: 5,
   },
   {
     value: 210,
     title: "Global Team Members",
     unit: plus,
+    duration: 5,
   },
   {
     value: 30000,
     title: "Hours in Development",
     unit: plus,
+    duration: 10,
   },
   {
     value: 100,
     title: "Happy Clients",
     unit: plus,
+    duration: 5,
   },
   {
     value: 97,
     title: "Customer Satisfaction",
     unit: "%",
+    duration: 5,
   },
   {
     value: 13,
     title: "Global Locations",
     unit: "",
+    duration: 3,
   },
 ];
 
@@ -46,7 +52,7 @@ const DiscoverSection = () => {
           <Typography variant="h2">Discover Upmotion Technologies</Typography>
         </FadeUp>
         <FadeUp>
-          <Typography>
+          <Typography width={{ tablet: "80%" }} mx={"auto"}>
             At Upmotion Technologies, we pioneer advanced blockchain, AI, and
             metaverse solutions across the globe. Our team of experts craft
             bespoke strategies that empower businesses to excel in a
@@ -59,14 +65,18 @@ const DiscoverSection = () => {
           sx={{
             border: "1px solid var(--palette-text-primary)",
             borderRadius: 4,
-            p: 2,
+            p: { mobile: 2, tablet: 4, laptop: 6 },
           }}
           flexDirection={{ mobile: "column", laptop: "row" }}
           gap={3}
           justifyContent={{ laptop: "space-between" }}
           alignItems="center"
         >
-          <Stack justifyContent="center" gap={2}>
+          <Stack
+            justifyContent="center"
+            gap={2}
+            alignItems={{ mobile: "center", laptop: "flex-start" }}
+          >
             <Typography variant="h3">Snapshot of Success</Typography>
             <Typography>
               With years of global experience and a track record of successful
@@ -83,7 +93,7 @@ const DiscoverSection = () => {
                   fontFamily="Poppins-Medium"
                 >
                   <Stack flexDirection="row" justifyContent="center">
-                    <Count value={stat.value} duration={5} />
+                    <Count value={stat.value} duration={stat.duration} />
 
                     {stat.unit}
                   </Stack>

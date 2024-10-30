@@ -1,4 +1,4 @@
-import { Stack, Typography } from "@mui/material";
+import { Button, Stack, Typography } from "@mui/material";
 // import RotatingLogo from "../icons/RotatingImage";
 import { FadeUp, ScaleIn } from "../animations";
 
@@ -8,7 +8,8 @@ const HeroSection = () => {
       alignItems="center"
       component="section"
       justifyContent="center"
-      height="calc(90vh - 60px)"
+      pt={{ mobile: "4rem", tablet: "10rem" }}
+      pb={{ mobile: "4rem", tablet: "11rem" }}
       gap={4}
       sx={{ position: "relative", overflow: "hidden" }}
     >
@@ -41,6 +42,8 @@ const HeroSection = () => {
               mobile: "3rem",
               laptop: "5rem",
             },
+            mx: "auto",
+            width: { tablet: "80%" },
           }}
         >
           Leading the way in Web and App Development
@@ -56,6 +59,9 @@ const HeroSection = () => {
           quisquam vero pariatur aperiam quo quidem obcaecati vitae doloribus
           quis atque incidunt assumenda odit.
         </Typography>
+      </FadeUp>
+      <FadeUp>
+        <Button variant="contained">Begin Your Tech Journey</Button>
       </FadeUp>
     </Stack>
   );

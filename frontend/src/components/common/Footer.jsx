@@ -136,7 +136,7 @@ const Footer = () => {
       </Grid>
       <Hr />
       <Stack alignItems="center">
-        <Typography variant="body2" textAlign="center">
+        <Typography variant="body2" textAlign="center" mt={2} mb={4}>
           Copyright © 2024 Upmotion Technologies | All Rights Reserved
         </Typography>
       </Stack>

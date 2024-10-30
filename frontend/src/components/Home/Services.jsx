@@ -70,6 +70,7 @@ const Services = () => {
               borderRadius: 4,
               ":hover": {
                 boxShadow: shadows[24],
+                // boxShadow:"0 0.75rem 1.5rem rgba(var(--palette-primary-mainChannel), 0.5)",
               },
             }}
           >

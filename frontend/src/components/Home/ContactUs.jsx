@@ -1,4 +1,4 @@
-import { Stack, Typography } from "@mui/material";
+import { Button, Stack, Typography } from "@mui/material";
 import PaddingBlock from "../common/PaddingBlock";
 import LabelledInput from "../common/LabelledInput";
 import { FadeLeft, FadeRight } from "../animations";
@@ -11,6 +11,8 @@ const ContactUs = () => {
           flexDirection: { mobile: "column", tablet: "row" },
           overflowX: "hidden",
         }}
+        width="100%"
+        justifyContent="space-between"
       >
         <Stack
           sx={{
@@ -28,18 +30,19 @@ const ContactUs = () => {
         </Stack>
 
         <Stack sx={{ flex: 1, alignItems: "center" }}>
-          <FadeLeft>
+          <FadeLeft style={{ width: "100%" }}>
             <Stack
               sx={{
                 border: "1px solid var(--palette-text-primary)",
-                // backgroundColor: "var(--palette-grey-200)",
                 borderRadius: 4,
                 width: { mobile: "100%" },
                 maxWidth: "600px",
+                ml: "auto",
                 p: { mobile: 2, tablet: 2, laptop: 4 },
               }}
               gap={2}
             >
+              <Typography variant="h3">Book a Discovery Session</Typography>
               <Stack flexDirection="row" gap={1}>
                 <LabelledInput
                   label="Full Name"
@@ -47,12 +50,16 @@ const ContactUs = () => {
                 />
                 <LabelledInput label="Email" placeholder="Enter your email" />
               </Stack>
-              <LabelledInput placeholder="Phone Number" />
+              <LabelledInput
+                placeholder="Enter Phone Number"
+                label="Phone Number"
+              />
               <LabelledInput
                 multiLine
                 placeholder="Enter your message"
                 label="Message"
               />
+              <Button variant="contained">Submit</Button>
             </Stack>
           </FadeLeft>
         </Stack>

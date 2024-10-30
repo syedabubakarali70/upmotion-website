@@ -32,7 +32,6 @@ const LabelledInput = ({
         placeholder={placeholder}
         multiline
         rows={multiLine ? 4 : 1}
-        sx={{ borderColor: "1 px solid red" }}
         slotProps={{
           input: {
             startAdornment: startAdornment && (

@@ -123,7 +123,8 @@ const Testimonials = () => {
                         width: 16,
                         height: 16,
                         p: 2,
-                        backgroundColor: "var(--palette-text-primary)",
+                        backgroundColor:
+                          "rgba(var(--palette-primary-mainChannel),0.9)",
                       }}
                     >
                       <Typography color="var(--palette-background-default)">
