@@ -20,8 +20,8 @@ const links = [
     path: "/services",
   },
   {
-    name: "Partners",
-    path: "/partners",
+    name: "Blogs",
+    path: "/blogs",
   },
   {
     name: "Testimonials",

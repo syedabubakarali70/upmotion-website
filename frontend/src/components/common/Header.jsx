@@ -28,12 +28,12 @@ const Header = () => {
           paddingBlock: 2,
           width: "100%",
           height: "60px",
-          // backdropFilter: "blur(8px)",
-          // backgroundColor: "rgba(var(--palette-primary-mainChannel),0.1)",
-          // position: "sticky",
-          // top: 0,
-          // zIndex: 1000,
-          // px: 2,
+          backdropFilter: "blur(8px)",
+          backgroundColor: "rgba(255,255,255,0.6)",
+          position: "sticky",
+          top: 0,
+          zIndex: 1000,
+          px: 2,
         }}
         flexDirection="row"
         justifyContent="space-between"

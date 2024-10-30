@@ -3,8 +3,7 @@ import PaddingBlock from "../common/PaddingBlock";
 import GridContainer from "../common/GridContainer";
 import Grid from "@mui/material/Grid2";
 import { FadeUp } from "../animations";
-
-export const teamData = [
+const teamData = [
   {
     image: "/ShadowMale.jpg",
     role: "CEO & Founder",
