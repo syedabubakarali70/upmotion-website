@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Paper, Typography } from "@mui/material";
 import PaddingBlock from "../common/PaddingBlock";
 import GridContainer from "../common/GridContainer";
 import Grid from "@mui/material/Grid2";
@@ -79,11 +79,12 @@ const Team = () => {
         {teamData.map((member, index) => (
           <Grid key={index} size={1}>
             <FadeUp style={{ height: "100%" }}>
-              <Stack
-                gap={1}
-                p={2}
+              <Paper
                 sx={{
-                  border: "1px solid var(--palette-text-primary)",
+                  p: 2,
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 1,
                   borderRadius: 4,
                   overflow: "hidden",
                   height: "100%",
@@ -111,11 +112,17 @@ const Team = () => {
                     height="100%"
                   />
                 </Box>
-                <Typography variant="h4" fontWeight={700}>
+                <Typography
+                  variant="h4"
+                  fontWeight={500}
+                  fontFamily="Poppins-Medium"
+                >
                   {member.name}
                 </Typography>
-                <Typography variant="h6">{member.role}</Typography>
-              </Stack>
+                <Typography variant="h6" fontFamily="Poppins-Medium">
+                  {member.role}
+                </Typography>
+              </Paper>
             </FadeUp>
           </Grid>
         ))}

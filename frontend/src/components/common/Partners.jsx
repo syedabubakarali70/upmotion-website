@@ -6,21 +6,23 @@ import PaddingBlock from "../common/PaddingBlock";
 import UpmotionLogo from "../icons/UpmotionLogo";
 const Partners = () => {
   return (
-    <FadeUp>
-      <PaddingBlock>
-        <Typography variant="h2" textAlign="center" mb={2}>
-          Our Trusted Partners
-        </Typography>
-        <Marquee autoFill>
-          <Box mx={6}>
-            <Upmotion />
-          </Box>
-          <Box mx={6}>
-            <UpmotionLogo />
-          </Box>
-        </Marquee>
-      </PaddingBlock>
-    </FadeUp>
+    <>
+      <FadeUp style={{ width: "100%" }}>
+        <PaddingBlock>
+          <Typography variant="h2" textAlign="center" mb={2}>
+            Our Trusted Partners
+          </Typography>
+          <Marquee autoFill>
+            <Box mx={6}>
+              <Upmotion />
+            </Box>
+            <Box mx={6}>
+              <UpmotionLogo />
+            </Box>
+          </Marquee>
+        </PaddingBlock>
+      </FadeUp>
+    </>
   );
 };
 

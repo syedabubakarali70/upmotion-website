@@ -3,7 +3,7 @@ import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 let theme = createTheme({
   cssVariables: { cssVarPrefix: "" },
   palette: {
-    mode: "light",
+    mode: "dark",
     primary: {
       mainChannel: "20,96,231",
       darkChannel: "9,28, 56",
@@ -11,6 +11,9 @@ let theme = createTheme({
       main: "rgb(var(--palette-primary-mainChannel))",
       light: "rgb(var(--palette-primary-lightChannel))",
       dark: "rgb(var(--palette-primary-darkChannel))",
+    },
+    background: {
+      main: "var(--palette-primary-dark)",
     },
     green: {
       mainChannel: " 0,170,78",
@@ -65,22 +68,25 @@ let theme = createTheme({
         root: {
           "& .MuiOutlinedInput-root": {
             "& fieldset": {
-              borderColor: "var(--palette-text-primary)",
+              border: "1px solid rgba(255, 255, 255, 0.479)",
             },
           },
         },
       },
     },
-    MuiButtonBase: {
-      defaultProps: {
-        // The props to change the default for.
-        // disableRipple: true, // No more ripple, on the whole application 💣!
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          backgroundColor: "#0f0f0f00",
+          border: "1px solid rgba(255, 255, 255, 0.1)",
+        },
       },
     },
     MuiDrawer: {
       styleOverrides: {
         paper: {
           backgroundImage: "none",
+          backgroundColor: "var(--palette-background-default)",
         },
       },
     },

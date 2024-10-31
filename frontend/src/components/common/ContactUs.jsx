@@ -2,6 +2,8 @@ import { Button, Stack, Typography } from "@mui/material";
 import PaddingBlock from "./PaddingBlock";
 import LabelledInput from "./LabelledInput";
 import { FadeLeft, FadeRight } from "../animations";
+import Paper from "@mui/material/Paper";
+import { z } from "zod";
 const ContactUs = () => {
   return (
     <PaddingBlock id="contact-us">
@@ -28,19 +30,19 @@ const ContactUs = () => {
             </Typography>
           </FadeRight>
         </Stack>
-
         <Stack sx={{ flex: 1, alignItems: "center" }}>
-          <FadeLeft style={{ width: "100%" }}>
-            <Stack
+          <FadeLeft>
+            <Paper
               sx={{
-                border: "1px solid var(--palette-text-primary)",
                 borderRadius: 4,
                 width: { mobile: "100%" },
                 maxWidth: "600px",
                 ml: "auto",
                 p: { mobile: 2, tablet: 2, laptop: 4 },
+                display: "flex",
+                flexDirection: "column",
+                gap: 2,
               }}
-              gap={2}
             >
               <Typography variant="h3">Book a Discovery Session</Typography>
               <Stack
@@ -64,7 +66,7 @@ const ContactUs = () => {
                 label="Message"
               />
               <Button variant="contained">Submit</Button>
-            </Stack>
+            </Paper>
           </FadeLeft>
         </Stack>
       </Stack>

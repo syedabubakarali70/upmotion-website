@@ -1,11 +1,10 @@
-import { Typography } from "@mui/material";
+import { Paper, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import PaddingBlock from "../common/PaddingBlock";
 import UpmotionLogo from "../icons/UpmotionLogo";
 import { motion } from "framer-motion";
 import { fadeUpVariants } from "../animations/variants";
 import { staggerParentValues } from "../animations/StaggerParent";
-// import shadows from "@mui/material/styles/shadows";
 import GridContainer from "../common/GridContainer";
 
 const MotionGrid = motion.create(Grid);
@@ -62,26 +61,27 @@ const Services = () => {
             viewport={{ once: staggerParentValues.once }}
             key={service.heading}
             size={1}
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 2,
-              border: "1px solid var(--palette-text-primary)",
-              p: 2,
-              borderRadius: 4,
-              ":hover": {
-                // boxShadow: shadows[24],
-                border: "1px solid var(--palette-primary-main)",
-                boxShadow:
-                  "0 0.75rem 1.5rem rgba(var(--palette-primary-mainChannel), 0.5)",
-              },
-            }}
           >
-            {service.icon}
-            <Typography fontWeight={700} variant="h5">
-              {service.heading}
-            </Typography>
-            <Typography>{service.content}</Typography>
+            <Paper
+              sx={{
+                display: "flex",
+                height: "100%",
+                flexDirection: "column",
+                gap: 2,
+                p: 2,
+                borderRadius: 4,
+                ":hover": {
+                  boxShadow: "0 0.4rem 7rem #e2e2e233",
+                  outline: "0.1rem solid rgba(255, 255, 255, 0.288)",
+                },
+              }}
+            >
+              {service.icon}
+              <Typography fontWeight={700} variant="h5">
+                {service.heading}
+              </Typography>
+              <Typography>{service.content}</Typography>
+            </Paper>
           </MotionGrid>
         ))}
       </GridContainer>

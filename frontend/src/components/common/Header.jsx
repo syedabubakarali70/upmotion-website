@@ -5,7 +5,6 @@ import { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import { StaggerParent } from "../animations";
 import Container from "./Container";
-import { alpha } from "@mui/material/styles";
 import ContactUsBtn from "./ContactUsBtn";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -23,16 +22,15 @@ const Header = () => {
     <>
       <Stack
         component="header"
-        sx={theme => ({
+        sx={{
           justifyContent: "center",
           width: "100%",
-          height: "60px",
           backdropFilter: "blur(8px)",
-          backgroundColor: alpha(theme.palette.background.default, 0.6),
-          position: "sticky",
+          position: "fixed",
+          py: 2,
           top: 0,
           zIndex: 1000,
-        })}
+        }}
       >
         <Container>
           <Stack

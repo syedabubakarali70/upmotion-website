@@ -9,6 +9,7 @@ import Hr from "./Hr";
 import { FadeUp, FlipLeft, StaggerParent } from "../animations";
 import { motion } from "framer-motion";
 import { fadeUpVariants } from "../animations/variants";
+import Container from "./Container";
 const socialMediaLinksColor = "var(--palette-background)";
 
 const socialMediaLinks = [
@@ -68,78 +69,84 @@ const footerLinks = [
 const Footer = () => {
   return (
     <footer>
-      <Grid
-        container
-        columns={{ mobile: 1, tablet: 2, laptop: 4 }}
-        spacing={4}
-        borderTop={"1px solid var(--palette-text-secondary)"}
-        py={4}
-      >
+      <Container>
         <Grid
-          size={1}
-          justifyContent={{ mobile: "center", laptop: "flex-start" }}
+          container
+          columns={{ mobile: 1, tablet: 2, laptop: 4 }}
+          spacing={4}
+          borderTop={"1px solid var(--palette-text-secondary)"}
+          py={4}
         >
-          <FlipLeft
-            style={{ width: "140px" }}
-            type="tween"
-            extraAnimationProps={{ ease: "easeInOut" }}
+          <Grid
+            size={1}
+            justifyContent={{ mobile: "center", laptop: "flex-start" }}
           >
-            <Upmotion width={"140px"} />
-          </FlipLeft>
-          <FadeUp>
-            <StaggerParent>
-              <Stack flexDirection="row" gap={1}>
-                {socialMediaLinks.map(media => (
-                  <a key={media.name}>
-                    <motion.div variants={fadeUpVariants}>
-                      <Stack
-                        p={1}
-                        justifyContent="center"
-                        alignItems="center"
-                        borderRadius={"50%"}
-                        sx={{
-                          backgroundColor: "#fff",
-                          border: "1px solid",
-                          borderColor: "var(--palette-primary-dark)",
-                        }}
-                      >
-                        {media.icon}
-                      </Stack>
-                    </motion.div>
-                  </a>
-                ))}
-              </Stack>
-            </StaggerParent>
-          </FadeUp>
-        </Grid>
-        {footerLinks.map(mainLinks => (
-          <Grid size={1} key={mainLinks.name}>
+            <FlipLeft
+              style={{ width: "140px" }}
+              type="tween"
+              extraAnimationProps={{ ease: "easeInOut" }}
+            >
+              <Upmotion width={"140px"} />
+            </FlipLeft>
             <FadeUp>
-              <Typography fontWeight={700} mb={2}>
-                {mainLinks.name}
-              </Typography>
+              <StaggerParent>
+                <Stack flexDirection="row" gap={1}>
+                  {socialMediaLinks.map(media => (
+                    <a key={media.name}>
+                      <motion.div variants={fadeUpVariants}>
+                        <Stack
+                          p={1}
+                          justifyContent="center"
+                          alignItems="center"
+                          borderRadius={"50%"}
+                          sx={{
+                            backgroundColor: "#fff",
+                            border: "1px solid",
+                            borderColor: "var(--palette-primary-dark)",
+                          }}
+                        >
+                          {media.icon}
+                        </Stack>
+                      </motion.div>
+                    </a>
+                  ))}
+                </Stack>
+              </StaggerParent>
             </FadeUp>
-            {mainLinks.childLinks.map(link => (
-              <FadeUp key={link.name} amount={0} margin={"1900px 0px 0px 0px"}>
-                <Typography
-                  mb={1}
-                  sx={{ cursor: "pointer" }}
-                  color="text-secondary"
-                  variant="body2"
-                >
-                  {link.name}
+          </Grid>
+          {footerLinks.map(mainLinks => (
+            <Grid size={1} key={mainLinks.name}>
+              <FadeUp>
+                <Typography fontWeight={700} mb={2}>
+                  {mainLinks.name}
                 </Typography>
               </FadeUp>
-            ))}
-          </Grid>
-        ))}
-      </Grid>
-      <Hr />
-      <Stack alignItems="center">
-        <Typography variant="body2" textAlign="center" mt={2} mb={4}>
-          Copyright © 2024 Upmotion Technologies | All Rights Reserved
-        </Typography>
-      </Stack>
+              {mainLinks.childLinks.map(link => (
+                <FadeUp
+                  key={link.name}
+                  amount={0}
+                  margin={"1900px 0px 0px 0px"}
+                >
+                  <Typography
+                    mb={1}
+                    sx={{ cursor: "pointer" }}
+                    color="text-secondary"
+                    variant="body2"
+                  >
+                    {link.name}
+                  </Typography>
+                </FadeUp>
+              ))}
+            </Grid>
+          ))}
+        </Grid>
+        <Hr />
+        <Stack alignItems="center">
+          <Typography variant="body2" textAlign="center" mt={2} mb={4}>
+            Copyright © 2024 Upmotion Technologies | All Rights Reserved
+          </Typography>
+        </Stack>
+      </Container>
     </footer>
   );
 };

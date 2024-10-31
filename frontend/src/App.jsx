@@ -3,7 +3,6 @@ import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
 import { ThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
-import Container from "./components/common/Container";
 import theme from "./components/common/theme";
 import ContactUs from "./components/common/ContactUs";
 import Partners from "./components/common/Partners";
@@ -15,15 +14,15 @@ const App = () => {
       <CssBaseline />
       <ScrollToTop />
       <Header />
-      <Container>
-        <main>
-          <Outlet context="hero-section" />
-          <Partners />
-          <Outlet context="rest" />
-        </main>
+      <div className="wrapper">
+        <Outlet context="hero-section" />
+      </div>
+      <div className="gradient-section">
+        <Partners />
+        <Outlet context="rest" />
         <ContactUs />
         <Footer />
-      </Container>
+      </div>
     </ThemeProvider>
   );
 };

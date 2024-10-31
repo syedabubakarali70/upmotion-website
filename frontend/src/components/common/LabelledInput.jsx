@@ -12,6 +12,8 @@ const LabelledInput = ({
   placeholder,
   startAdornment,
   endAdornment,
+  error,
+  helperText,
   multiLine = false,
 }) => {
   return (
@@ -31,6 +33,9 @@ const LabelledInput = ({
       <TextField
         placeholder={placeholder}
         multiline
+        error={error}
+        value=""
+        helperText={helperText}
         rows={multiLine ? 4 : 1}
         slotProps={{
           input: {
@@ -52,6 +57,8 @@ const LabelledInput = ({
 LabelledInput.propTypes = {
   label: PropTypes.string,
   placeholder: PropTypes.string,
+  error: PropTypes.bool,
+  helperText: PropTypes.string,
   startAdornment: PropTypes.element,
   endAdornment: PropTypes.element,
   multiLine: PropTypes.bool,

@@ -6,7 +6,12 @@ const PaddingBlock = ({
   id,
 }) => {
   return (
-    <Box component="section" paddingBlock={paddingBlock} id={id}>
+    <Box
+      component="section"
+      paddingBlock={paddingBlock}
+      id={id}
+      paddingInline={{ mobile: 2, tablet: 4, laptop: 8, desktop: 12 }}
+    >
       {children}
     </Box>
   );

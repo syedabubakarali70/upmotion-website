@@ -1,4 +1,10 @@
-import { IconButton, Stack, Typography, useMediaQuery } from "@mui/material";
+import {
+  IconButton,
+  Paper,
+  Stack,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import PaddingBlock from "../common/PaddingBlock";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
@@ -87,10 +93,11 @@ const Testimonials = () => {
           >
             {reviews.map((review, index) => (
               <SwiperSlide key={index}>
-                <Stack
-                  gap={2}
+                <Paper
                   sx={{
-                    border: "1px solid var(--palette-text-primary)",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 2,
                     borderRadius: 4,
                     p: 2,
                     height: 200,
@@ -128,7 +135,7 @@ const Testimonials = () => {
                           "rgba(var(--palette-primary-mainChannel),0.9)",
                       }}
                     >
-                      <Typography color="var(--palette-background-default)">
+                      <Typography color="var(--palette-text-primary)">
                         {getInitials(review.name)}
                       </Typography>
                     </Stack>
@@ -142,7 +149,7 @@ const Testimonials = () => {
                       </Typography>
                     </Stack>
                   </Stack>
-                </Stack>
+                </Paper>
               </SwiperSlide>
             ))}
           </Swiper>

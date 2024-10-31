@@ -26,6 +26,23 @@
 
 /* Apply the font globally */
 body {
-overflow-x: hidden;  
+  overflow-x: hidden;  
+   
+  }
 
-}
+  .wrapper {
+    min-height: 100vh; /* First section for the background image */
+    background-image: url('/heroSectionBackground.svg');
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: contain; /* Cover the entire section */
+    background-color: black;
+  }
+  
+  .gradient-section {
+    background: radial-gradient(circle, rgb(22 25 42) 9%, rgba(0, 0, 0, 1) 96%);
+    background-repeat: repeat-y;
+  }
+    
+    
+

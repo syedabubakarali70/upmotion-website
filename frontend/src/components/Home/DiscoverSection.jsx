@@ -1,4 +1,4 @@
-import { Stack, Typography } from "@mui/material";
+import { Paper, Stack, Typography } from "@mui/material";
 import PaddingBlock from "../common/PaddingBlock";
 import { FadeUp } from "../animations";
 import Grid from "@mui/material/Grid2";
@@ -61,16 +61,16 @@ const DiscoverSection = () => {
         </FadeUp>
       </Stack>
       <FadeUp>
-        <Stack
+        <Paper
           sx={{
-            border: "1px solid var(--palette-text-primary)",
             borderRadius: 4,
             p: { mobile: 2, tablet: 4, laptop: 6 },
+            display: "flex",
+            flexDirection: { mobile: "column", laptop: "row" },
+            gap: 3,
+            justifyContent: { laptop: "space-between" },
+            alignItems: "center",
           }}
-          flexDirection={{ mobile: "column", laptop: "row" }}
-          gap={3}
-          justifyContent={{ laptop: "space-between" }}
-          alignItems="center"
         >
           <Stack
             justifyContent="center"
@@ -104,7 +104,7 @@ const DiscoverSection = () => {
               </Grid>
             ))}
           </Grid>
-        </Stack>
+        </Paper>
       </FadeUp>
     </PaddingBlock>
   );
