@@ -5,6 +5,8 @@ import { ThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 import Container from "./components/common/Container";
 import theme from "./components/common/theme";
+import ContactUs from "./components/common/ContactUs";
+import Partners from "./components/common/Partners";
 
 const App = () => {
   return (
@@ -13,8 +15,11 @@ const App = () => {
       <Container>
         <Header />
         <main>
-          <Outlet />
+          <Outlet context="hero-section" />
+          <Partners />
+          <Outlet context="rest" />
         </main>
+        <ContactUs />
         <Footer />
       </Container>
     </ThemeProvider>

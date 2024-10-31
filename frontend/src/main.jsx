@@ -5,9 +5,9 @@ import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./Pages/Home.jsx";
 import AboutUs from "./Pages/AboutUs.jsx";
-import Services from "./components/Home/Services.jsx";
+import Services from "./Pages/Services.jsx";
 import Blogs from "./Pages/Blogs.jsx";
-import Testimonials from "./components/Home/Testimonials.jsx";
+import Testimonials from "./Pages/Testimonials.jsx";
 
 const router = createBrowserRouter([
   {

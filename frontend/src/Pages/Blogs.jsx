@@ -1,5 +1,14 @@
+import { useOutletContext } from "react-router-dom";
+import HeroSection from "../components/Blogs/HeroSection";
+
 const Blogs = () => {
-  return <div>Blogs</div>;
+  const context = useOutletContext();
+  return (
+    <>
+      {context === "hero-section" && <HeroSection />}
+      {context === "rest" && <></>}
+    </>
+  );
 };
 
 export default Blogs;

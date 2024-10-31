@@ -1,6 +1,6 @@
 import { Button, Stack, Typography } from "@mui/material";
-import PaddingBlock from "../common/PaddingBlock";
-import LabelledInput from "../common/LabelledInput";
+import PaddingBlock from "./PaddingBlock";
+import LabelledInput from "./LabelledInput";
 import { FadeLeft, FadeRight } from "../animations";
 const ContactUs = () => {
   return (

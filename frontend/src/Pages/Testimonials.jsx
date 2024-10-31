@@ -1,18 +1,18 @@
 import { useOutletContext } from "react-router-dom";
-import HeroSection from "../components/Services/HeroSection";
-import Services from "../components/Services/Services";
-const ServicesPage = () => {
+import HeroSection from "../components/Testimonials/HeroSection";
+import Testimonials from "../components/Testimonials/Testimonials";
+const TestimonialsPage = () => {
   const context = useOutletContext();
   return (
     <>
       {context === "hero-section" && <HeroSection />}
       {context === "rest" && (
         <>
-          <Services />
+          <Testimonials />
         </>
       )}
     </>
   );
 };
 
-export default ServicesPage;
+export default TestimonialsPage;
