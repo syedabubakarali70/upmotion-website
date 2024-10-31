@@ -3,8 +3,53 @@ import PaddingBlock from "./PaddingBlock";
 import LabelledInput from "./LabelledInput";
 import { FadeLeft, FadeRight } from "../animations";
 import Paper from "@mui/material/Paper";
+import { useState } from "react";
 import { z } from "zod";
+
+const nameSchema = z.string().min(1, "Name is required");
+const emailSchema = z.string().email("Invalid email address");
+const phoneNumberSchema = z
+  .string()
+  .regex(/^[0-9]{10}$/, "Phone number must be 10 digits");
+
+const fieldSchemas = {
+  name: nameSchema,
+  email: emailSchema,
+  phoneNumber: phoneNumberSchema,
+};
+
 const ContactUs = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phoneNumber: "",
+  });
+  const [errors, setErrors] = useState({
+    name: "",
+    email: "",
+    phoneNumber: "",
+  });
+
+  const validateField = (field, value) => {
+    const schema = fieldSchemas[field];
+    const result = schema.safeParse(value);
+
+    if (result.success) {
+      setErrors(prevErrors => ({ ...prevErrors, [field]: "" }));
+    } else {
+      setErrors(prevErrors => ({
+        ...prevErrors,
+        [field]: result.error.errors[0].message,
+      }));
+    }
+  };
+
+  const handleChange = e => {
+    const { name, value } = e.target;
+    setFormData(prevData => ({ ...prevData, [name]: value }));
+    validateField(name, value);
+  };
+
   return (
     <PaddingBlock id="contact-us">
       <Stack
@@ -30,7 +75,12 @@ const ContactUs = () => {
             </Typography>
           </FadeRight>
         </Stack>
-        <Stack sx={{ flex: 1, alignItems: "center" }}>
+        <Stack
+          sx={{
+            flex: 1,
+            alignItems: { mboile: "stretch", laptop: "flex-end" },
+          }}
+        >
           <FadeLeft>
             <Paper
               sx={{
@@ -53,19 +103,49 @@ const ContactUs = () => {
                 <LabelledInput
                   label="Full Name"
                   placeholder="Enter your full name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  error={!!errors.name}
+                  helperText={errors.name}
                 />
-                <LabelledInput label="Email" placeholder="Enter your email" />
+                <LabelledInput
+                  label="Email"
+                  placeholder="Enter your email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  error={!!errors.email}
+                  helperText={errors.email}
+                />
               </Stack>
               <LabelledInput
-                placeholder="Enter Phone Number"
                 label="Phone Number"
+                placeholder="Enter your phone number"
+                name="phoneNumber"
+                value={formData.phoneNumber}
+                onChange={handleChange}
+                error={!!errors.phoneNumber}
+                helperText={errors.phoneNumber}
               />
               <LabelledInput
                 multiLine
                 placeholder="Enter your message"
                 label="Message"
               />
-              <Button variant="contained">Submit</Button>
+              <Button
+                variant="contained"
+                disabled={
+                  !!errors.name ||
+                  !!errors.phoneNumber ||
+                  !!errors.email ||
+                  !formData.name ||
+                  !formData.phoneNumber ||
+                  !formData.email
+                }
+              >
+                Submit
+              </Button>
             </Paper>
           </FadeLeft>
         </Stack>

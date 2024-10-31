@@ -16,41 +16,63 @@ import "swiper/css/navigation";
 import { FadeLeft, FadeRight, FadeUp } from "../animations";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+
 const reviews = [
   {
     review:
-      "Upmotion delivered a responsive, fast, and modern website that perfectly showcases our brand!",
+      "Logicruise is review of the best, hard-working, passionate, and respectful companies you can work with on Fiverr. Their work was exceptional, providing amazing results on a platform they were somewhat unfamiliar with, which utilized the Chrome CEF. Second, the work was done blazing fast, which was unexpected for the amount of work. Third, their prices beat almost everyreview on the market, and for the quality of work, I wouldn't have been surprised if they charged much more. Fourth and final point, Logicruise’s timelines were unbeatable. They wanted to have meetings every day to discuss progress and make revisions as we went, which even I couldn't keep up with. If you need React development, go with Logicruise!",
     rating: 5,
-    name: "Alex Morgan",
-    position: "Marketing Director, Tech Innovations Co.",
+    name: "abdu_sizz",
+    place: "Egypt",
   },
   {
     review:
-      "Our mobile app turned out seamless and user-friendly. Upmotion’s attention to detail is impressive!",
+      "Exceptional delivery, work was done as discussed and met my expectations. Amazing work and an amazing guy to with. Definitely recommended",
+    name: "huzaifax",
     rating: 5,
-    name: "Jamie Lee",
-    position: "Product Manager, Urban Mobility Ltd.",
+    place: "Canada",
   },
   {
     review:
-      "We saw a great boost in search rankings thanks to Upmotion’s effective SEO strategies and insights!",
+      "Logicruise is very cooperative and well-behaved company, demonstrating great dedication to the project. They delivered exceptional, high-quality work.",
+    name: "t11ger",
     rating: 4.5,
-    name: "Taylor Reed",
-    position: "Content Strategist, GreenWorld Media",
+    place: "United Kingdom",
   },
   {
     review:
-      "Upmotion transformed our e-commerce site – it’s optimized, secure, and visually stunning. Sales are up!",
+      "Delivered as per the discussion and recommendations. Absolutely recommended",
+    name: "huzaifax",
     rating: 5,
-    name: "Morgan Smith",
-    position: "E-commerce Lead, FashionFinders Inc.",
+    place: "Canada",
   },
   {
     review:
-      "The SEO team helped us reach new audiences with higher engagement. Fantastic experience overall!",
+      "Excellent work, just as I expected. Their dedication to completing the project within the timeline is truly commendable and greatly appreciated.",
+    name: "saadmehmood",
     rating: 4,
-    name: "Jordan Brown",
-    position: "Digital Marketing Specialist, Stellar Solutions",
+    place: "Pakistan",
+  },
+  {
+    review:
+      "When you work with Logicruise you are working with a group of professionals who ensure they will understand the requirements and make any necessary adjustments to their work to deliver the job as expected. Even though they are new sellers, and sometimes have to discount their services because they are new in Fiverr, I'm sure they will build top ranking quickly. I will come back to them for new jobs. Thank you",
+    name: "rad_works",
+    rating: 5,
+    place: "United States",
+  },
+  {
+    review:
+      "Seller did their Best ,very much pleased highly appreciated their efforts and understanding. delivered my project even before deadline, speedy and accurate working.",
+    name: "zahreemsyed",
+    place: "Australia",
+    rating: 5,
+  },
+  {
+    review:
+      "Excellent work! Awais worked fast and kept the code in top quality, just like I wanted",
+    name: "salman7586",
+    rating: 5,
+    place: "United Kingdom",
   },
 ];
 
@@ -80,6 +102,10 @@ const Testimonials = () => {
           <Typography variant="h2" textAlign="center">
             Success Stories: Hear What Our Clients Have to Say
           </Typography>
+          <Stack flexDirection="row" gap={1}>
+            <Rating value={4.9} readOnly precision={0.1} />
+            <Typography>100+ Client Reviews</Typography>
+          </Stack>
           <Swiper
             loop
             onSwiper={swiper => {

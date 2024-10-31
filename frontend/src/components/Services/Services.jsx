@@ -1,7 +1,6 @@
 import { Paper, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import PaddingBlock from "../common/PaddingBlock";
-import UpmotionLogo from "../icons/UpmotionLogo";
 import { motion } from "framer-motion";
 import { fadeUpVariants } from "../animations/variants";
 import { staggerParentValues } from "../animations/StaggerParent";
@@ -9,37 +8,64 @@ import GridContainer from "../common/GridContainer";
 
 const MotionGrid = motion.create(Grid);
 
-const baseObject = {
-  icon: <UpmotionLogo />,
-  heading: "Web Development",
-  content:
-    "Build dynamic, user-centric websites that serve as powerful digital hubs for your brand.",
-};
+// const baseObject = {
+//   icon: <UpmotionLogo />,
+//   heading: "Web Development",
+//   content:
+//     "Build dynamic, user-centric websites that serve as powerful digital hubs for your brand.",
+// };
 
-const headings = [
-  "Web Development",
-  "App Development",
-  "UI/UX Design",
-  "Digital Marketing",
-  "SEO Optimization",
-  "E-commerce Solutions",
-];
+// const headings = [
+//   "Web Development",
+//   "App Development",
+//   "UI/UX Design",
+//   "Digital Marketing",
+//   "SEO Optimization",
+//   "E-commerce Solutions",
+// ];
 
-const contents = [
-  "Build dynamic, user-centric websites that serve as powerful digital hubs for your brand.",
-  "Develop engaging and high-performance mobile applications tailored to your business needs.",
-  "Craft intuitive and visually appealing designs to enhance user experience and engagement.",
-  "Create data-driven strategies to boost your online presence and connect with your audience.",
-  "Enhance website visibility on search engines to drive organic traffic and improve rankings.",
-  "Build and optimize e-commerce platforms that provide seamless shopping experiences for users.",
-];
+// const contents = [
+//   "Build dynamic, user-centric websites that serve as powerful digital hubs for your brand.",
+//   "Develop engaging and high-performance mobile applications tailored to your business needs.",
+//   "Craft intuitive and visually appealing designs to enhance user experience and engagement.",
+//   "Create data-driven strategies to boost your online presence and connect with your audience.",
+//   "Enhance website visibility on search engines to drive organic traffic and improve rankings.",
+//   "Build and optimize e-commerce platforms that provide seamless shopping experiences for users.",
+// ];
 
 // Generate the array by mapping through headings and contents
-const services = headings.map((heading, index) => ({
-  ...baseObject,
-  heading: heading,
-  content: contents[index],
-}));
+// const services = headings.map((heading, index) => ({
+//   ...baseObject,
+//   heading: heading,
+//   content: contents[index],
+// }));
+
+const services = [
+  {
+    title: "Software Development",
+    desc: "Unlock your vision with our tailored software development services. Whether you need a robust web application or a mobile solution, our expert developers leverage the latest technologies to create custom software that not only meets your business needs but also scales with your growth. With a focus on quality and user experience, we transform your ideas into high-performing, innovative solutions that drive results.",
+  },
+  {
+    title: "No-Code Development",
+    desc: "Empower your team with our no-code development services! We simplify the app creation process, enabling you to build powerful applications without writing a single line of code. With intuitive drag-and-drop interfaces and a wealth of pre-built templates, we help you accelerate your digital transformation. Say goodbye to lengthy development cycles and helloto rapid prototyping and deployment, all while keeping control over your project.",
+  },
+  {
+    title: "SEO",
+    desc: "Elevate your online presence with our expert SEO services. In today’s digital landscape, visibility is everything. Our tailored strategies combine keyword optimization, technical SEO, and high-quality content to improve your search engine rankings and attract the right audience. Let us help you turn clicks into customers by enhancing your website’s performance and driving organic traffic that converts.",
+  },
+  {
+    title: "IT Outsourcing",
+    desc: "Focus on your core business while we take care of your IT needs! Our IT outsourcing services provide you with access to a dedicated team of experts, ready to handle everything from infrastructure management to software support. With our cost-effective solutions, you can enhance productivity, reduce operational costs, and ensure that your technology runs smoothly. Partner with us to gain flexibility and expertise without the overhead.",
+  },
+  {
+    title: "Emerging Technologies",
+    desc: "Stay ahead of the curve with our insights into emerging technologies! From AI and machine learning to blockchain and IoT, we help you harness the power of the latest innovations to drive efficiency and create new opportunities. Our team is dedicated to exploring how these technologies can transform your business processes, enhance customer experiences, and give you a competitive edge in a rapidly evolving landscape.",
+  },
+  {
+    title: "Advisory",
+    desc: "Navigate the complexities of the IT landscape with our advisory services. Our experienced consultants work closely with you to understand your unique challenges and goals. We provide strategic guidance, best practices, and actionable insights that empower you to make informed decisions. Whether you’re looking to optimize your IT infrastructure or explore new technologies, we’re here to help you chart a path to success.",
+  },
+];
 
 const Services = () => {
   return (
@@ -76,11 +102,11 @@ const Services = () => {
                 },
               }}
             >
-              {service.icon}
+              {/* {service.icon} */}
               <Typography fontWeight={700} variant="h5">
-                {service.heading}
+                {service.title}
               </Typography>
-              <Typography>{service.content}</Typography>
+              <Typography>{service.desc}</Typography>
             </Paper>
           </MotionGrid>
         ))}
