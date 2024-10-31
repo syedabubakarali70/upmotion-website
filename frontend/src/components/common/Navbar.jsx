@@ -29,78 +29,74 @@ const links = [
   },
 ];
 
-const Navbar = () => {
+const Navbar = ({ closeDrawer }) => {
   return (
     <>
       {links.map(link => (
-        <NavLinkComponent key={link.name} name={link.name} path={link.path} />
+        <NavLinkComponent
+          key={link.name}
+          name={link.name}
+          path={link.path}
+          closeDrawer={closeDrawer}
+        />
       ))}
     </>
   );
 };
+Navbar.propTypes = {
+  closeDrawer: PropTypes.func,
+};
 
-const NavLinkComponent = ({ name, path }) => {
+const NavLinkComponent = ({ name, path, closeDrawer }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <NavLink to={path}>
+    <NavLink to={path} onClick={closeDrawer}>
       {({ isActive }) => (
         <motion.div
           variants={fadeDownVariants}
           onHoverStart={() => setIsHovered(true)}
           onHoverEnd={() => setIsHovered(false)}
           style={{
-            position: "relative",
+            // position: "relative",
             display: "inline-block",
             cursor: "pointer",
           }}
         >
-          <Typography color="var(--palette-text-primary)">{name}</Typography>
+          <Typography color="var(--palette-text-primary)" mb="2px">
+            {name}
+          </Typography>
           {/* {isActive && (
-            <Underline
-              style={{
-                position: "absolute",
-                bottom: 0,
-                left: 0,
-                height: "2px",
-                backgroundColor: "var(--palette-text-primary)",
-                width: "100%",
-              }}
-              duration={5}
-              layoutId="underline"
-              type="tween"
-            ></Underline>
-          )} */}
-          {isActive && (
             <motion.div
               style={{
-                position: "absolute",
-                bottom: 0,
-                left: 0,
+                // position: "absolute",
+                // bottom: 0,
+                // left: 0,
+                // right: 0,
                 backgroundColor: "var(--palette-text-primary)",
                 height: "2px",
                 width: "100%",
               }}
               transition={{ type: "spring", bounce: 0.2 }}
-              layout="position"
+              layout="size"
               layoutId="underline"
             ></motion.div>
-          )}
-          {!isActive && isHovered && (
-            <Underline
-              initial="initial"
-              animate={isActive ? "animate" : isHovered ? "animate" : "initial"}
-              style={{
-                position: "absolute",
-                bottom: 0,
-                left: 0,
-                height: "2px",
-                backgroundColor: "var(--palette-text-secondary)",
-              }}
-              duration={0.2}
-              extraAnimationProps={{ ease: "easeInOut" }}
-            ></Underline>
-          )}
+          )} */}
+          {/* {!isActive && isHovered && ( */}
+          <Underline
+            initial="initial"
+            animate={isActive ? "animate" : isHovered ? "animate" : "initial"}
+            style={{
+              // position: "absolute",
+              // bottom: 0,
+              // left: 0,
+              height: "2px",
+              backgroundColor: "var(--palette-text-secondary)",
+            }}
+            duration={0.2}
+            extraAnimationProps={{ ease: "easeInOut" }}
+          ></Underline>
+          {/* )} */}
         </motion.div>
       )}
     </NavLink>
@@ -109,6 +105,7 @@ const NavLinkComponent = ({ name, path }) => {
 NavLinkComponent.propTypes = {
   name: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
+  closeDrawer: PropTypes.func,
 };
 
 export default Navbar;

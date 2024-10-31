@@ -3,9 +3,10 @@ import PropTypes from "prop-types";
 const PaddingBlock = ({
   children,
   paddingBlock = { mobile: 2, tablet: 4, laptop: 6 },
+  id,
 }) => {
   return (
-    <Box component="section" paddingBlock={paddingBlock}>
+    <Box component="section" paddingBlock={paddingBlock} id={id}>
       {children}
     </Box>
   );
@@ -18,5 +19,6 @@ PaddingBlock.propTypes = {
     desktop: PropTypes.number,
   }),
   children: PropTypes.node.isRequired,
+  id: PropTypes.string,
 };
 export default PaddingBlock;

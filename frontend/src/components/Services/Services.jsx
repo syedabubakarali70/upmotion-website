@@ -5,7 +5,7 @@ import UpmotionLogo from "../icons/UpmotionLogo";
 import { motion } from "framer-motion";
 import { fadeUpVariants } from "../animations/variants";
 import { staggerParentValues } from "../animations/StaggerParent";
-import shadows from "@mui/material/styles/shadows";
+// import shadows from "@mui/material/styles/shadows";
 import GridContainer from "../common/GridContainer";
 
 const MotionGrid = motion.create(Grid);
@@ -70,8 +70,10 @@ const Services = () => {
               p: 2,
               borderRadius: 4,
               ":hover": {
-                boxShadow: shadows[24],
-                // boxShadow:"0 0.75rem 1.5rem rgba(var(--palette-primary-mainChannel), 0.5)",
+                // boxShadow: shadows[24],
+                border: "1px solid var(--palette-primary-main)",
+                boxShadow:
+                  "0 0.75rem 1.5rem rgba(var(--palette-primary-mainChannel), 0.5)",
               },
             }}
           >

@@ -1,7 +1,8 @@
-import { Button, Stack, Typography } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 // import RotatingLogo from "../icons/RotatingImage";
 import { FadeUp, ScaleIn } from "../animations";
 import PropTypes from "prop-types";
+import ContactUsBtn from "./ContactUsBtn";
 const HeroSection = ({ heading, content }) => {
   return (
     <Stack
@@ -58,7 +59,7 @@ const HeroSection = ({ heading, content }) => {
         </Typography>
       </FadeUp>
       <FadeUp>
-        <Button variant="contained">Begin Your Tech Journey</Button>
+        <ContactUsBtn content="Begin Your Tech Journey" />
       </FadeUp>
     </Stack>
   );

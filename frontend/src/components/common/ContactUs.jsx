@@ -4,7 +4,7 @@ import LabelledInput from "./LabelledInput";
 import { FadeLeft, FadeRight } from "../animations";
 const ContactUs = () => {
   return (
-    <PaddingBlock>
+    <PaddingBlock id="contact-us">
       <Stack
         gap={4}
         sx={{

@@ -83,7 +83,7 @@ const Team = () => {
                 gap={1}
                 p={2}
                 sx={{
-                  border: "1px solid black",
+                  border: "1px solid var(--palette-text-primary)",
                   borderRadius: 4,
                   overflow: "hidden",
                   height: "100%",

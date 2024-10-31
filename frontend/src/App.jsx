@@ -7,13 +7,15 @@ import Container from "./components/common/Container";
 import theme from "./components/common/theme";
 import ContactUs from "./components/common/ContactUs";
 import Partners from "./components/common/Partners";
+import ScrollToTop from "./components/common/ScrollToTop";
 
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <ScrollToTop />
+      <Header />
       <Container>
-        <Header />
         <main>
           <Outlet context="hero-section" />
           <Partners />
