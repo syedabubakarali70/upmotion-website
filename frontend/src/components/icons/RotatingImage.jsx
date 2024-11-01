@@ -1,15 +1,12 @@
 import { motion } from "framer-motion";
 import PropTypes from "prop-types";
-import UpmotionLogo from "./UpmotionLogo";
-
 const RotatingImage = ({
-  duration = 4,
+  duration = 10,
   direction = "clockwise",
   top,
   right,
   bottom,
   left,
-  width = "80",
 }) => {
   const rotationAngle = direction === "clockwise" ? 360 : -360;
 
@@ -34,15 +31,16 @@ const RotatingImage = ({
         right,
         bottom,
         left,
+        zIndex: -10,
       }}
     >
-      <UpmotionLogo width={width} />
+      <img src="/codeLogo.svg" />
     </motion.div>
   );
 };
 RotatingImage.propTypes = {
   duration: PropTypes.number,
-  direction: PropTypes.oneOf(["clockwise", "counterclockwise"]),
+  direction: PropTypes.oneOf(["clockwise", "anticlockwise"]),
   top: PropTypes.string,
   right: PropTypes.string,
   bottom: PropTypes.string,

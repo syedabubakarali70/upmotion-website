@@ -9,7 +9,7 @@ import Hr from "./Hr";
 import { FadeUp, FlipLeft, StaggerParent } from "../animations";
 import { motion } from "framer-motion";
 import { fadeUpVariants } from "../animations/variants";
-import Container from "./Container";
+import PaddingBlock from "./PaddingBlock";
 const socialMediaLinksColor = "var(--palette-background)";
 
 const socialMediaLinks = [
@@ -69,7 +69,7 @@ const footerLinks = [
 const Footer = () => {
   return (
     <footer>
-      <Container>
+      <PaddingBlock paddingBlock={{ mobile: 0, tablet: 0, laptop: 0 }}>
         <Grid
           container
           columns={{ mobile: 1, tablet: 2, laptop: 4 }}
@@ -146,7 +146,7 @@ const Footer = () => {
             Copyright © 2024 Upmotion Technologies | All Rights Reserved
           </Typography>
         </Stack>
-      </Container>
+      </PaddingBlock>
     </footer>
   );
 };

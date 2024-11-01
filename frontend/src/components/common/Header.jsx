@@ -4,9 +4,9 @@ import Navbar from "./Navbar";
 import { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import { StaggerParent } from "../animations";
-import Container from "./Container";
 import ContactUsBtn from "./ContactUsBtn";
 import { Link, useNavigate } from "react-router-dom";
+import PaddingBlock from "./PaddingBlock";
 
 const Header = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -32,7 +32,7 @@ const Header = () => {
           zIndex: 1000,
         }}
       >
-        <Container>
+        <PaddingBlock paddingBlock={{ mobile: 0, tablet: 0, laptop: 0 }}>
           <Stack
             flexDirection="row"
             justifyContent="space-between"
@@ -78,7 +78,7 @@ const Header = () => {
               </IconButton>
             </Box>
           </Stack>
-        </Container>
+        </PaddingBlock>
       </Stack>
       <Drawer
         anchor="left"

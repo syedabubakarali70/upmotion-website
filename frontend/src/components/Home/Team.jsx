@@ -113,13 +113,13 @@ const Team = () => {
                   />
                 </Box>
                 <Typography
-                  variant="h4"
+                  variant="h5"
                   fontWeight={500}
                   fontFamily="Poppins-Medium"
                 >
                   {member.name}
                 </Typography>
-                <Typography variant="h6" fontFamily="Poppins-Medium">
+                <Typography variant="body1" fontFamily="Poppins-Medium">
                   {member.role}
                 </Typography>
               </Paper>

@@ -20,7 +20,7 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 const reviews = [
   {
     review:
-      "Logicruise is review of the best, hard-working, passionate, and respectful companies you can work with on Fiverr. Their work was exceptional, providing amazing results on a platform they were somewhat unfamiliar with, which utilized the Chrome CEF. Second, the work was done blazing fast, which was unexpected for the amount of work. Third, their prices beat almost everyreview on the market, and for the quality of work, I wouldn't have been surprised if they charged much more. Fourth and final point, Logicruise’s timelines were unbeatable. They wanted to have meetings every day to discuss progress and make revisions as we went, which even I couldn't keep up with. If you need React development, go with Logicruise!",
+      "Upmotion is review of the best, hard-working, passionate, and respectful companies you can work with on Fiverr. Their work was exceptional, providing amazing results on a platform they were somewhat unfamiliar with, which utilized the Chrome CEF. Second, the work was done blazing fast, which was unexpected for the amount of work. Third, their prices beat almost everyreview on the market, and for the quality of work, I wouldn't have been surprised if they charged much more. Fourth and final point, Upmotion’s timelines were unbeatable. They wanted to have meetings every day to discuss progress and make revisions as we went, which even I couldn't keep up with. If you need React development, go with Upmotion!",
     rating: 5,
     name: "abdu_sizz",
     place: "Egypt",
@@ -34,7 +34,7 @@ const reviews = [
   },
   {
     review:
-      "Logicruise is very cooperative and well-behaved company, demonstrating great dedication to the project. They delivered exceptional, high-quality work.",
+      "Upmotion is very cooperative and well-behaved company, demonstrating great dedication to the project. They delivered exceptional, high-quality work.",
     name: "t11ger",
     rating: 4.5,
     place: "United Kingdom",
@@ -55,7 +55,7 @@ const reviews = [
   },
   {
     review:
-      "When you work with Logicruise you are working with a group of professionals who ensure they will understand the requirements and make any necessary adjustments to their work to deliver the job as expected. Even though they are new sellers, and sometimes have to discount their services because they are new in Fiverr, I'm sure they will build top ranking quickly. I will come back to them for new jobs. Thank you",
+      "When you work with Upmotion you are working with a group of professionals who ensure they will understand the requirements and make any necessary adjustments to their work to deliver the job as expected. Even though they are new sellers, and sometimes have to discount their services because they are new in Fiverr, I'm sure they will build top ranking quickly. I will come back to them for new jobs. Thank you",
     name: "rad_works",
     rating: 5,
     place: "United States",
@@ -171,7 +171,7 @@ const Testimonials = () => {
                         variant="body2"
                         color="var(--palette-primary-main)"
                       >
-                        {review.position}
+                        {review.place}
                       </Typography>
                     </Stack>
                   </Stack>
