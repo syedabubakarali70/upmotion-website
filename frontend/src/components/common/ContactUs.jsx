@@ -85,7 +85,7 @@ const ContactUs = () => {
             <Paper
               sx={{
                 borderRadius: 4,
-                width: { mobile: "100%" },
+                width: { mobile: "100%", laptop: "500px" },
                 maxWidth: "600px",
                 ml: "auto",
                 p: { mobile: 2, tablet: 2, laptop: 4 },

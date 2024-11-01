@@ -1,4 +1,4 @@
-import { Paper, Typography } from "@mui/material";
+import { Box, Paper, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import PaddingBlock from "../common/PaddingBlock";
 import { motion } from "framer-motion";
@@ -108,7 +108,16 @@ const Services = () => {
                 },
               }}
             >
-              <img src={service.img} width="64" height="64" />
+              <Box
+                sx={{
+                  width: { mobile: "40px", laptop: "64px" },
+                  height: { mobile: "40px", laptop: "64px" },
+                  backgroundColor:
+                    "rgba(var(--palette-primary-mainChannel),0.8)",
+                  mask: `url(${service.img}) no-repeat center / contain`,
+                  WebkitMask: `url(${service.img}) no-repeat center / contain`,
+                }}
+              />
               <Typography fontWeight={700} variant="h4">
                 {service.title}
               </Typography>
