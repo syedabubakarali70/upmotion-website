@@ -13,6 +13,8 @@ const LabelledInput = ({
   startAdornment,
   endAdornment,
   onChange,
+  onBlur,
+  value,
   name,
   error,
   helperText,
@@ -34,7 +36,9 @@ const LabelledInput = ({
       )}
       <TextField
         placeholder={placeholder}
-        onBlur={onChange}
+        onChange={onChange}
+        onBlur={onBlur}
+        value={value}
         multiline
         name={name}
         error={error}
@@ -66,7 +70,9 @@ LabelledInput.propTypes = {
   endAdornment: PropTypes.element,
   multiLine: PropTypes.bool,
   onChange: PropTypes.func,
+  onBlur: PropTypes.func,
   name: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 export default LabelledInput;

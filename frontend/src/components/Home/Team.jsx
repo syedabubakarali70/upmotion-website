@@ -5,62 +5,62 @@ import Grid from "@mui/material/Grid2";
 import { FadeUp } from "../animations";
 const teamData = [
   {
-    image: "/ShadowMale.jpg",
+    image: "/ShadowMale.webp",
     role: "CEO & Founder",
     name: "Mr. Asif Ashiq Rana",
   },
   {
-    image: "/ShadowMale.jpg",
+    image: "/ShadowMale.webp",
     role: "MD (Global)",
     name: "Humza Chishty",
   },
   {
-    image: "/ShadowMale.jpg",
+    image: "/ShadowMale.webp",
     name: "Eric R. Smithers",
     role: "MD (USA)",
   },
   {
-    image: "/ShadowMale.jpg",
+    image: "/ShadowMale.webp",
     name: "Barry Perkins",
     role: "SVP (USA)",
   },
   {
-    image: "/ShadowMale.jpg",
+    image: "/ShadowMale.webp",
     name: "Temur Khan",
     role: "Chief Technology Officer",
   },
   {
-    image: "/ShadowMale.jpg",
+    image: "/ShadowMale.webp",
     name: "Mughees Ahmad",
     role: "Head of Business Development",
   },
   {
-    image: "/ShadowMale.jpg",
+    image: "/ShadowMale.webp",
     name: "Gul Afshan",
     role: "Head of Engineering (AI)",
   },
   {
-    image: "/ShadowMale.jpg",
+    image: "/ShadowMale.webp",
     name: "Ammar Hanif",
     role: "Head of Engineering (Blockchain)",
   },
   {
-    image: "/ShadowMale.jpg",
+    image: "/ShadowMale.webp",
     name: "Ayesha Yaqoob",
     role: "Solutions Architect (Blockchain)",
   },
   {
-    image: "/ShadowMale.jpg",
+    image: "/ShadowMale.webp",
     name: "Kainat Mansoor",
     role: "Solutions Architect (AI)",
   },
   {
-    image: "/ShadowMale.jpg",
+    image: "/ShadowMale.webp",
     name: "Muhammad Jawad",
     role: "Head of Project Management",
   },
   {
-    image: "/ShadowMale.jpg",
+    image: "/ShadowMale.webp",
     name: "Ghulam Mustafa",
     role: "Head of Product Design",
   },

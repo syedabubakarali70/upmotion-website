@@ -1,36 +1,91 @@
-import { Button, Stack, Typography } from "@mui/material";
+import {
+  Alert,
+  Button,
+  CircularProgress,
+  Snackbar,
+  Stack,
+  Typography,
+} from "@mui/material";
 import PaddingBlock from "./PaddingBlock";
 import LabelledInput from "./LabelledInput";
 import { FadeLeft, FadeRight } from "../animations";
 import Paper from "@mui/material/Paper";
-import { useState } from "react";
+import { useReducer, useRef, useState } from "react";
 import { z } from "zod";
+import emailjs from "@emailjs/browser";
 
-const nameSchema = z.string().min(1, "Name is required");
+const from_nameSchema = z.string().min(1, "Name is required");
 const emailSchema = z.string().email("Invalid email address");
-const phoneNumberSchema = z
+const numberSchema = z
   .string()
   .regex(/^[0-9]{10}$/, "Phone number must be 10 digits");
 
 const fieldSchemas = {
-  name: nameSchema,
+  from_name: from_nameSchema,
   email: emailSchema,
-  phoneNumber: phoneNumberSchema,
+  number: numberSchema,
 };
 
+const initialState = {
+  open: false,
+  isLoading: false,
+  isError: false,
+};
+
+// Define reducer function
+function reducer(state, action) {
+  switch (action.type) {
+    case "LOADING":
+      return { ...state, isLoading: true, isError: false, open: false };
+    case "SUCCESS":
+      return { ...state, isLoading: false, isError: false, open: true };
+    case "ERROR":
+      return { ...state, isLoading: false, isError: true, open: true };
+    case "CLOSE_TOAST":
+      return { ...state, open: false };
+    case "RESET":
+      return { ...state, isLoading: false, isError: false, open: false };
+    default:
+      return state;
+  }
+}
+
 const ContactUs = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
   const [formData, setFormData] = useState({
-    name: "",
+    from_name: "",
     email: "",
-    phoneNumber: "",
+    number: "",
+    message: "",
   });
   const [errors, setErrors] = useState({
-    name: "",
+    from_name: "",
     email: "",
-    phoneNumber: "",
+    number: "",
   });
 
-  const validateField = (field, value) => {
+  const form = useRef();
+
+  const sendEmail = e => {
+    e.preventDefault();
+    dispatch({ type: "LOADING" });
+    emailjs
+      .sendForm("service_rmp4dne", "template_4wm2eds", form.current, {
+        publicKey: "LLbbwDtkBniJFfSUN",
+      })
+      .then(
+        () => {
+          dispatch({ type: "SUCCESS" });
+          setFormData({ from_name: "", email: "", number: "", message: "" });
+        },
+        error => {
+          dispatch({ type: "ERROR" });
+          console.log("FAILED...", error.text);
+        }
+      );
+  };
+
+  const validateFieldOnBlur = (field, value) => {
     const schema = fieldSchemas[field];
     const result = schema.safeParse(value);
 
@@ -43,11 +98,24 @@ const ContactUs = () => {
       }));
     }
   };
+  const validateFieldOnChange = (field, value) => {
+    const schema = fieldSchemas[field];
+    const result = schema.safeParse(value);
+
+    if (result.success) {
+      setErrors(prevErrors => ({ ...prevErrors, [field]: "" }));
+    }
+  };
 
   const handleChange = e => {
     const { name, value } = e.target;
     setFormData(prevData => ({ ...prevData, [name]: value }));
-    validateField(name, value);
+    validateFieldOnChange(name, value);
+  };
+  const handleBlur = e => {
+    const { name, value } = e.target;
+    setFormData(prevData => ({ ...prevData, [name]: value }));
+    validateFieldOnBlur(name, value);
   };
 
   return (
@@ -82,71 +150,101 @@ const ContactUs = () => {
           }}
         >
           <FadeLeft>
-            <Paper
-              sx={{
-                borderRadius: 4,
-                width: { mobile: "100%", laptop: "500px" },
-                maxWidth: "600px",
-                ml: "auto",
-                p: { mobile: 2, tablet: 2, laptop: 4 },
-                display: "flex",
-                flexDirection: "column",
-                gap: 2,
-              }}
-            >
-              <Typography variant="h3">Book a Discovery Session</Typography>
-              <Stack
-                flexDirection="row"
-                gap={1}
-                sx={{ flexDirection: { mobile: "column", laptop: "row" } }}
+            <form ref={form} onSubmit={sendEmail}>
+              <Paper
+                sx={{
+                  borderRadius: 4,
+                  width: { mobile: "100%", laptop: "500px" },
+                  maxWidth: "600px",
+                  ml: "auto",
+                  p: { mobile: 2, tablet: 2, laptop: 4 },
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 2,
+                }}
               >
+                <Typography variant="h3">Book a Discovery Session</Typography>
+                <Stack
+                  gap={2}
+                  sx={{ flexDirection: { mobile: "column", laptop: "row" } }}
+                >
+                  <LabelledInput
+                    label="Full Name"
+                    placeholder="Enter your full name"
+                    onBlur={handleBlur}
+                    name="from_name"
+                    value={formData.from_name}
+                    onChange={handleChange}
+                    error={!!errors.from_name}
+                    helperText={errors.from_name}
+                  />
+                  <LabelledInput
+                    label="Email"
+                    placeholder="Enter your email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    error={!!errors.email}
+                    helperText={errors.email}
+                  />
+                </Stack>
                 <LabelledInput
-                  label="Full Name"
-                  placeholder="Enter your full name"
-                  name="name"
-                  value={formData.name}
+                  label="Phone Number"
+                  placeholder="Enter your phone number"
+                  name="number"
+                  value={formData.number}
                   onChange={handleChange}
-                  error={!!errors.name}
-                  helperText={errors.name}
+                  onBlur={handleBlur}
+                  error={!!errors.number}
+                  helperText={errors.number}
                 />
                 <LabelledInput
-                  label="Email"
-                  placeholder="Enter your email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  error={!!errors.email}
-                  helperText={errors.email}
+                  multiLine
+                  value={formData.message}
+                  onChange={e =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
+                  name="message"
+                  placeholder="Enter your message"
+                  label="Message"
                 />
-              </Stack>
-              <LabelledInput
-                label="Phone Number"
-                placeholder="Enter your phone number"
-                name="phoneNumber"
-                value={formData.phoneNumber}
-                onChange={handleChange}
-                error={!!errors.phoneNumber}
-                helperText={errors.phoneNumber}
-              />
-              <LabelledInput
-                multiLine
-                placeholder="Enter your message"
-                label="Message"
-              />
-              <Button
-                variant="contained"
-                disabled={
-                  !!errors.name ||
-                  !!errors.phoneNumber ||
-                  !!errors.email ||
-                  !formData.name ||
-                  !formData.phoneNumber ||
-                  !formData.email
-                }
-              >
-                Submit
-              </Button>
-            </Paper>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  disabled={
+                    !!errors.from_name ||
+                    !!errors.number ||
+                    !!errors.email ||
+                    !formData.from_name ||
+                    !formData.number ||
+                    !formData.email ||
+                    state.isLoading
+                  }
+                >
+                  {!state.isLoading ? (
+                    "Submit"
+                  ) : (
+                    <CircularProgress color="inherit" size={"24px"} />
+                  )}
+                </Button>
+                <Snackbar
+                  open={state.open}
+                  autoHideDuration={5000}
+                  onClose={() => dispatch({ type: "CLOSE_TOAST" })}
+                  anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+                >
+                  <Alert
+                    severity={state.isError ? "error" : "success"}
+                    variant="filled"
+                  >
+                    {state.isError
+                      ? "Error occured! Please try again later."
+                      : "Email sent successfully"}
+                  </Alert>
+                </Snackbar>
+              </Paper>
+            </form>
           </FadeLeft>
         </Stack>
       </Stack>
