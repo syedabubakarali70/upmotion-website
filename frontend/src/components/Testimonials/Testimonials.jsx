@@ -107,6 +107,7 @@ const Testimonials = () => {
             <Typography>100+ Client Reviews</Typography>
           </Stack>
           <Swiper
+            speed={2000}
             loop
             onSwiper={swiper => {
               swiperRef.current = swiper;
