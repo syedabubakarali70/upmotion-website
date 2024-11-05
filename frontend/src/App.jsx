@@ -7,6 +7,7 @@ import theme from "./components/common/theme";
 import ContactUs from "./components/common/ContactUs";
 import Partners from "./components/common/Partners";
 import ScrollToTop from "./components/common/ScrollToTop";
+import IntroAnimation from "./components/common/IntroAnimation";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <CssBaseline />
       <ScrollToTop />
       <Header />
+      <IntroAnimation />
       <div className="wrapper">
         <Outlet context="hero-section" />
       </div>

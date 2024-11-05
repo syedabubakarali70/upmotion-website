@@ -108,3 +108,13 @@ HeroSection.propTypes = {
 };
 
 export default HeroSection;
+
+{
+  /* <motion.div
+        variants={{ initial: { y: "100vh" }, animate: { y: 0 } }}
+        initial="initial"
+        animate="animate"
+        transition={{ delay: 2, type: "spring", bounce: 0.1 }}
+        style={{ position: "relative", overflow: "hidden" }}
+      > */
+}

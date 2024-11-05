@@ -10,10 +10,11 @@ const PaddingBlock = ({
       component="section"
       paddingBlock={paddingBlock}
       id={id}
-      paddingInline={{ mobile: 2, tablet: 4, laptop: 8, desktop: 12 }}
+      // paddingInline={{ mobile: 2, tablet: 4, laptop: 8, desktop: 12 }}
+      paddingInline={"2vw"}
       width={"100%"}
-      maxWidth="100rem"
-      mx="auto"
+      // maxWidth="100rem"
+      // mx="auto"
     >
       {children}
     </Box>

@@ -32,11 +32,12 @@ const links = [
 const Navbar = ({ closeDrawer }) => {
   return (
     <>
-      {links.map(link => (
+      {links.map((link, idx) => (
         <NavLinkComponent
           key={link.name}
           name={link.name}
           path={link.path}
+          index={idx}
           closeDrawer={closeDrawer}
         />
       ))}
@@ -47,7 +48,7 @@ Navbar.propTypes = {
   closeDrawer: PropTypes.func,
 };
 
-const NavLinkComponent = ({ name, path, closeDrawer }) => {
+const NavLinkComponent = ({ name, path, closeDrawer, index }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -55,10 +56,10 @@ const NavLinkComponent = ({ name, path, closeDrawer }) => {
       {({ isActive }) => (
         <motion.div
           variants={fadeDownVariants}
+          custom={index}
           onHoverStart={() => setIsHovered(true)}
           onHoverEnd={() => setIsHovered(false)}
           style={{
-            // position: "relative",
             display: "inline-block",
             cursor: "pointer",
           }}
@@ -66,37 +67,16 @@ const NavLinkComponent = ({ name, path, closeDrawer }) => {
           <Typography color="var(--palette-text-primary)" mb="2px">
             {name}
           </Typography>
-          {/* {isActive && (
-            <motion.div
-              style={{
-                // position: "absolute",
-                // bottom: 0,
-                // left: 0,
-                // right: 0,
-                backgroundColor: "var(--palette-text-primary)",
-                height: "2px",
-                width: "100%",
-              }}
-              transition={{ type: "spring", bounce: 0.2 }}
-              layout="size"
-              layoutId="underline"
-            ></motion.div>
-          )} */}
-          {/* {!isActive && isHovered && ( */}
           <Underline
             initial="initial"
             animate={isActive ? "animate" : isHovered ? "animate" : "initial"}
             style={{
-              // position: "absolute",
-              // bottom: 0,
-              // left: 0,
               height: "2px",
               backgroundColor: "var(--palette-text-secondary)",
             }}
             duration={0.2}
             extraAnimationProps={{ ease: "easeInOut" }}
           ></Underline>
-          {/* )} */}
         </motion.div>
       )}
     </NavLink>
@@ -105,6 +85,7 @@ const NavLinkComponent = ({ name, path, closeDrawer }) => {
 NavLinkComponent.propTypes = {
   name: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
   closeDrawer: PropTypes.func,
 };
 
