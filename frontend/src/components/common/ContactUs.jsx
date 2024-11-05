@@ -18,7 +18,7 @@ const from_nameSchema = z.string().min(1, "Name is required");
 const emailSchema = z.string().email("Invalid email address");
 const numberSchema = z
   .string()
-  .regex(/^[0-9]{11}$/, "Phone number must be 10 digits");
+  .regex(/^[0-9]{11}$/, "Phone number must be 11 digits");
 
 const fieldSchemas = {
   from_name: from_nameSchema,
@@ -49,7 +49,26 @@ function reducer(state, action) {
       return state;
   }
 }
-
+const option = [
+  {
+    value: "Software Development",
+  },
+  {
+    value: "No-Code Development",
+  },
+  {
+    value: "SEO",
+  },
+  {
+    value: "IT Outsourcing",
+  },
+  {
+    value: "Emerging Technologies",
+  },
+  {
+    value: "Advisory",
+  },
+];
 const ContactUs = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [formData, setFormData] = useState({
@@ -57,6 +76,7 @@ const ContactUs = () => {
     email: "",
     number: "",
     message: "",
+    option: option[0].value,
   });
   const [errors, setErrors] = useState({
     from_name: "",
@@ -117,26 +137,6 @@ const ContactUs = () => {
     setFormData(prevData => ({ ...prevData, [name]: value }));
     validateFieldOnBlur(name, value);
   };
-  const services = [
-    {
-      value: "Software Development",
-    },
-    {
-      value: "No-Code Development",
-    },
-    {
-      value: "SEO",
-    },
-    {
-      value: "IT Outsourcing",
-    },
-    {
-      value: "Emerging Technologies",
-    },
-    {
-      value: "Advisory",
-    },
-  ];
 
   return (
     <PaddingBlock id="contact-us">
@@ -222,14 +222,11 @@ const ContactUs = () => {
                 <LabelledInput
                   label="Service"
                   placeholder="Select Service"
-                  name="number"
-                  list={services}
-                  value={services[0].value}
-                  // value={formData.number}
-                  // onChange={handleChange}
-                  // onBlur={handleBlur}
-                  // error={!!errors.number}
-                  // helperText={errors.number}
+                  name="option"
+                  list={option}
+                  value={formData.option}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
                 />
                 <LabelledInput
                   multiLine
