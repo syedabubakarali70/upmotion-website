@@ -8,38 +8,6 @@ import GridContainer from "../common/GridContainer";
 
 const MotionGrid = motion.create(Grid);
 
-// const baseObject = {
-//   icon: <UpmotionLogo />,
-//   heading: "Web Development",
-//   content:
-//     "Build dynamic, user-centric websites that serve as powerful digital hubs for your brand.",
-// };
-
-// const headings = [
-//   "Web Development",
-//   "App Development",
-//   "UI/UX Design",
-//   "Digital Marketing",
-//   "SEO Optimization",
-//   "E-commerce Solutions",
-// ];
-
-// const contents = [
-//   "Build dynamic, user-centric websites that serve as powerful digital hubs for your brand.",
-//   "Develop engaging and high-performance mobile applications tailored to your business needs.",
-//   "Craft intuitive and visually appealing designs to enhance user experience and engagement.",
-//   "Create data-driven strategies to boost your online presence and connect with your audience.",
-//   "Enhance website visibility on search engines to drive organic traffic and improve rankings.",
-//   "Build and optimize e-commerce platforms that provide seamless shopping experiences for users.",
-// ];
-
-// Generate the array by mapping through headings and contents
-// const services = headings.map((heading, index) => ({
-//   ...baseObject,
-//   heading: heading,
-//   content: contents[index],
-// }));
-
 const services = [
   {
     title: "Software Development",
