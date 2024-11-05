@@ -19,7 +19,7 @@ const stats = [
     duration: 5,
   },
   {
-    value: 30000,
+    value: calculateTotalHours("2024-11-1"),
     title: "Hours in Development",
     unit: plus,
     duration: 10,
@@ -43,6 +43,39 @@ const stats = [
     duration: 3,
   },
 ];
+
+function calculateTotalHours(startDate) {
+  const start = new Date(startDate); // Convert the input date to a Date object
+  const now = new Date(); // Get the current date
+
+  // Calculate the time difference in milliseconds
+  const timeDifference = now - start;
+
+  // Calculate full weeks (using floor) and remaining days
+  const weeks = Math.floor(timeDifference / (7 * 24 * 60 * 60 * 1000));
+  let totalHours = weeks * 40; // 40 hours per full week
+
+  // Get the remaining days after counting full weeks
+  let remainingDays =
+    (timeDifference % (7 * 24 * 60 * 60 * 1000)) / (24 * 60 * 60 * 1000);
+
+  // Set startDate to the beginning of the remaining days period
+  const remainingStartDate = new Date(start);
+  remainingStartDate.setDate(start.getDate() + weeks * 7);
+
+  // Loop through each remaining day, excluding weekends
+  for (let i = 0; i < Math.floor(remainingDays); i++) {
+    remainingStartDate.setDate(remainingStartDate.getDate() + 1);
+    const dayOfWeek = remainingStartDate.getDay();
+
+    // Only add hours if the day is not Saturday (6) or Sunday (0)
+    if (dayOfWeek !== 0 && dayOfWeek !== 6) {
+      totalHours += 8;
+    }
+  }
+
+  return totalHours + 30000;
+}
 
 const DiscoverSection = () => {
   return (
