@@ -112,8 +112,7 @@ const Services = () => {
                 sx={{
                   width: { mobile: "40px", laptop: "64px" },
                   height: { mobile: "40px", laptop: "64px" },
-                  backgroundColor:
-                    "rgba(var(--palette-primary-mainChannel),0.8)",
+                  backgroundColor: "var(--palette-green-main)",
                   mask: `url(${service.img}) no-repeat center / contain`,
                   WebkitMask: `url(${service.img}) no-repeat center / contain`,
                 }}
