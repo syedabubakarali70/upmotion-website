@@ -142,6 +142,7 @@ const ContactUs = () => {
     <PaddingBlock id="contact-us">
       <Stack
         gap={4}
+        p={"1px"}
         sx={{
           flexDirection: { mobile: "column", tablet: "row" },
           overflowX: "hidden",

@@ -52,8 +52,7 @@ const IntroAnimation = () => {
           minHeight: "100dvh",
           width: "100vw",
           position: "absolute",
-          background:
-            "radial-gradient(circle, rgb(9, 11, 9) 9%, rgba(0, 0, 0, 1) 96%)",
+          background: "var(--palette-primary-light)",
           backgroundSize: "100% 100vh",
           zIndex: "1005",
           display: "flex",

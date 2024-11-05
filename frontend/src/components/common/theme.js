@@ -3,7 +3,7 @@ import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 let theme = createTheme({
   cssVariables: { cssVarPrefix: "" },
   palette: {
-    mode: "dark",
+    mode: "light",
     primary: {
       mainChannel: "20,96,231",
       darkChannel: "9,28, 56",
@@ -13,7 +13,7 @@ let theme = createTheme({
       dark: "rgb(var(--palette-primary-darkChannel))",
     },
     background: {
-      main: "var(--palette-primary-dark)",
+      default: "var(--palette-primary-light)",
     },
     green: {
       mainChannel: " 0,170,78",
@@ -28,6 +28,9 @@ let theme = createTheme({
       main: "rgb(var(--palette-gold-mainChannel))",
     },
     logo: { main: "var(--palette-primary-main)" },
+    text: {
+      primary: "var(--palette-primary-dark)",
+    },
   },
   breakpoints: {
     values: {
@@ -68,7 +71,7 @@ let theme = createTheme({
         root: {
           "& .MuiOutlinedInput-root": {
             "& fieldset": {
-              border: "1px solid rgba(255, 255, 255, 0.479)",
+              // border: "1px solid rgba(255, 255, 255, 0.479)",
             },
           },
         },
@@ -77,8 +80,8 @@ let theme = createTheme({
     MuiPaper: {
       styleOverrides: {
         root: {
-          backgroundColor: "#0f0f0f00",
-          border: "1px solid rgba(255, 255, 255, 0.1)",
+          backgroundColor: "#ffffff80",
+          border: "1px solid rgba(var(--palette-primary-dark),0.5)",
         },
       },
     },

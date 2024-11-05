@@ -30,16 +30,16 @@ body {
    
   }
 
-  .wrapper {
-    min-height: 100vh; /* First section for the background image */
+  /* .wrapper {
+    min-height: 100vh;
     background-image: url('/heroSectionBackground.svg');
     background-position: top center;
     background-repeat: no-repeat;
     background-size: contain; 
     background-color: black;
-  }
+  } */
   
-  .gradient-section {
+  /* .gradient-section {
     background: radial-gradient(circle, rgb(9, 11, 9) 9%, rgba(0, 0, 0, 1) 96%);
     background-repeat: repeat-y;
     background-size: 100% 100vh;
@@ -55,6 +55,6 @@ body {
     background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(9, 11, 9, 0));
     z-index: 1;
   }
-    
+     */
     
 

@@ -103,7 +103,7 @@ const Services = () => {
                 p: { mobile: 2, laptop: 4 },
                 borderRadius: 4,
                 ":hover": {
-                  boxShadow: "0 0.4rem 7rem #e2e2e233",
+                  boxShadow: "0 0.4rem 3rem #aaa",
                   outline: "0.1rem solid rgba(255, 255, 255, 0.288)",
                 },
               }}

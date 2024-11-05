@@ -162,7 +162,7 @@ const Testimonials = () => {
                           "rgba(var(--palette-primary-mainChannel),0.9)",
                       }}
                     >
-                      <Typography color="var(--palette-text-primary)">
+                      <Typography color="var(--palette-background-default)">
                         {getInitials(review.name)}
                       </Typography>
                     </Stack>
@@ -184,7 +184,10 @@ const Testimonials = () => {
             <FadeRight>
               <IconButton
                 onClick={() => swiperRef.current?.slidePrev()}
-                sx={{ border: "1px solid var(--palette-text-primary)" }}
+                sx={{
+                  backgroundColor: "var(--palette-primary-main)",
+                  color: "var(--palette-background-default)",
+                }}
               >
                 <ArrowBackIosNewIcon />
               </IconButton>
@@ -192,7 +195,10 @@ const Testimonials = () => {
             <FadeLeft>
               <IconButton
                 onClick={() => swiperRef.current?.slideNext()}
-                sx={{ border: "1px solid var(--palette-text-primary)" }}
+                sx={{
+                  backgroundColor: "var(--palette-primary-main)",
+                  color: "var(--palette-background-default)",
+                }}
               >
                 <ArrowForwardIosIcon />
               </IconButton>
