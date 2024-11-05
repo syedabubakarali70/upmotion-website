@@ -5,6 +5,7 @@ export const staggerParentValues = {
   staggerDuration: 0.05,
   once: defaultOnce,
   staggerDirection: 1,
+  delayChildren: 0,
 };
 
 const StaggerParent = ({
@@ -12,12 +13,17 @@ const StaggerParent = ({
   staggerDuration = staggerParentValues.staggerDuration,
   once = staggerParentValues.once,
   staggerDirection = staggerParentValues.staggerDirection,
+  delayChildren = staggerParentValues.delayChildren,
 }) => {
   return (
     <motion.div
       initial="initial"
       whileInView="whileInView"
-      transition={{ staggerChildren: staggerDuration, staggerDirection }}
+      transition={{
+        staggerChildren: staggerDuration,
+        staggerDirection,
+        delayChildren: delayChildren,
+      }}
       viewport={{ once }}
     >
       {children}
@@ -28,6 +34,7 @@ const StaggerParent = ({
 StaggerParent.propTypes = {
   children: PropTypes.node.isRequired,
   staggerDuration: PropTypes.number,
+  delayChildren: PropTypes.number,
   once: PropTypes.bool,
   staggerDirection: PropTypes.number,
 };

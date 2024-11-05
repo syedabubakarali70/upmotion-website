@@ -1,5 +1,5 @@
 import { Box, Drawer, IconButton, Stack } from "@mui/material";
-import Upmotion from "../icons/Upmotion";
+// import Upmotion from "../icons/Upmotion";
 import Navbar from "./Navbar";
 import { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -27,9 +27,10 @@ const Header = () => {
           width: "100%",
           backdropFilter: "blur(8px)",
           position: "fixed",
-          py: 2,
+          py: "1vh",
           top: 0,
           zIndex: 1000,
+          height: "60px",
         }}
       >
         <PaddingBlock paddingBlock={{ mobile: 0, tablet: 0, laptop: 0 }}>
@@ -40,11 +41,16 @@ const Header = () => {
             width="100%"
           >
             <Link to="/" onClick={handleLogoClick}>
-              <Stack flexDirection="row" alignItems={"center"}>
-                <Upmotion width={140} height={40} />
+              <Stack
+                flexDirection="row"
+                alignItems={"center"}
+                width={140}
+                // sx={{ visibility: "hidden" }}
+              >
+                {/* <Upmotion width={140} height={40} /> */}
               </Stack>
             </Link>
-            <StaggerParent>
+            <StaggerParent delayChildren={3} staggerDuration={0.2}>
               <Stack
                 flexDirection="row"
                 gap={4}
@@ -73,7 +79,10 @@ const Header = () => {
                 alignItems: "center",
               }}
             >
-              <IconButton onClick={() => setDrawerOpen(true)}>
+              <IconButton
+                onClick={() => setDrawerOpen(true)}
+                sx={{ paddingRight: 0 }}
+              >
                 <MenuIcon />
               </IconButton>
             </Box>
