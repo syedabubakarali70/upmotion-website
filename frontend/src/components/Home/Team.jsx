@@ -44,26 +44,6 @@ const teamData = [
     name: "Ammar Hanif",
     role: "Head of Engineering (Blockchain)",
   },
-  {
-    image: "/ShadowMale.webp",
-    name: "Ayesha Yaqoob",
-    role: "Solutions Architect (Blockchain)",
-  },
-  {
-    image: "/ShadowMale.webp",
-    name: "Kainat Mansoor",
-    role: "Solutions Architect (AI)",
-  },
-  {
-    image: "/ShadowMale.webp",
-    name: "Muhammad Jawad",
-    role: "Head of Project Management",
-  },
-  {
-    image: "/ShadowMale.webp",
-    name: "Ghulam Mustafa",
-    role: "Head of Product Design",
-  },
 ];
 const Team = () => {
   return (
