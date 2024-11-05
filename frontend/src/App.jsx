@@ -8,15 +8,21 @@ import ContactUs from "./components/common/ContactUs";
 import Partners from "./components/common/Partners";
 import ScrollToTop from "./components/common/ScrollToTop";
 import IntroAnimation from "./components/common/IntroAnimation";
+import { useEffect } from "react";
 
 const App = () => {
+  useEffect(() => {
+    window.onload = function () {
+      window.scrollTo(0, 0);
+    };
+  });
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <ScrollToTop />
       <Header />
       <IntroAnimation />
       <div className="wrapper">
+        <ScrollToTop />
         <Outlet context="hero-section" />
       </div>
       <div className="gradient-section">

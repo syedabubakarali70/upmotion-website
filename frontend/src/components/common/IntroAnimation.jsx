@@ -46,7 +46,8 @@ const IntroAnimation = () => {
     <>
       <motion.div
         variants={backgroundVariants}
-        animate="animate"
+        whileInView="animate"
+        viewport={{ once: true }}
         style={{
           minHeight: "100dvh",
           width: "100vw",

@@ -2,6 +2,7 @@ import {
   FormControl,
   IconButton,
   InputAdornment,
+  // MenuItem,
   TextField,
   Typography,
 } from "@mui/material";
@@ -17,6 +18,7 @@ const LabelledInput = ({
   value,
   name,
   error,
+  list,
   helperText,
   multiLine = false,
 }) => {
@@ -40,11 +42,15 @@ const LabelledInput = ({
         onBlur={onBlur}
         value={value}
         multiline
+        select={list ? true : false}
         name={name}
         error={error}
         helperText={helperText}
         rows={multiLine ? 4 : 1}
         slotProps={{
+          select: {
+            native: true,
+          },
           input: {
             startAdornment: startAdornment && (
               <InputAdornment position="start">{startAdornment}</InputAdornment>
@@ -56,7 +62,14 @@ const LabelledInput = ({
             ),
           },
         }}
-      />
+      >
+        {list &&
+          list.map(option => (
+            <option key={option.value} value={option.value}>
+              {option.value}
+            </option>
+          ))}
+      </TextField>
     </FormControl>
   );
 };
@@ -68,6 +81,7 @@ LabelledInput.propTypes = {
   helperText: PropTypes.string,
   startAdornment: PropTypes.element,
   endAdornment: PropTypes.element,
+  list: PropTypes.array,
   multiLine: PropTypes.bool,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,

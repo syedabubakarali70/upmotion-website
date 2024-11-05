@@ -18,7 +18,7 @@ const from_nameSchema = z.string().min(1, "Name is required");
 const emailSchema = z.string().email("Invalid email address");
 const numberSchema = z
   .string()
-  .regex(/^[0-9]{10}$/, "Phone number must be 10 digits");
+  .regex(/^[0-9]{11}$/, "Phone number must be 10 digits");
 
 const fieldSchemas = {
   from_name: from_nameSchema,
@@ -117,6 +117,26 @@ const ContactUs = () => {
     setFormData(prevData => ({ ...prevData, [name]: value }));
     validateFieldOnBlur(name, value);
   };
+  const services = [
+    {
+      value: "Software Development",
+    },
+    {
+      value: "No-Code Development",
+    },
+    {
+      value: "SEO",
+    },
+    {
+      value: "IT Outsourcing",
+    },
+    {
+      value: "Emerging Technologies",
+    },
+    {
+      value: "Advisory",
+    },
+  ];
 
   return (
     <PaddingBlock id="contact-us">
@@ -198,6 +218,18 @@ const ContactUs = () => {
                   onBlur={handleBlur}
                   error={!!errors.number}
                   helperText={errors.number}
+                />
+                <LabelledInput
+                  label="Service"
+                  placeholder="Select Service"
+                  name="number"
+                  list={services}
+                  value={services[0].value}
+                  // value={formData.number}
+                  // onChange={handleChange}
+                  // onBlur={handleBlur}
+                  // error={!!errors.number}
+                  // helperText={errors.number}
                 />
                 <LabelledInput
                   multiLine
