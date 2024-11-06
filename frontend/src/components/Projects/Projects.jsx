@@ -1,6 +1,6 @@
-import { Typography } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import PaddingBlock from "../common/PaddingBlock";
-import GridContainer from "../common/GridContainer";
+// import GridContainer from "../common/GridContainer";
 import ProjectCard from "./ProjectCard";
 
 const projects = [
@@ -47,7 +47,7 @@ const Projects = () => {
           "Upmotion Tech's projects showcase our expertise in delivering tailored, impactful digital solutions that drive results."
         }
       </Typography>
-      <GridContainer>
+      <Stack>
         {projects.map(project => (
           <ProjectCard
             heading={project.heading}
@@ -55,7 +55,7 @@ const Projects = () => {
             key={project.heading}
           />
         ))}
-      </GridContainer>
+      </Stack>
     </PaddingBlock>
   );
 };
