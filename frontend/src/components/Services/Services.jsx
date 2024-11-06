@@ -58,7 +58,7 @@ const Services = () => {
             initial="initial"
             whileInView="whileInView"
             whileHover={{ y: -10 }}
-            viewport={{ once: staggerParentValues.once }}
+            viewport={{ once: staggerParentValues.once, amount: "all" }}
             key={service.title}
             size={1}
           >

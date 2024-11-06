@@ -16,7 +16,6 @@ const Header = () => {
     e.preventDefault();
     navigate("/", { replace: true });
     window.scrollTo({ top: 0, behavior: "smooth" });
-    // window.location.reload();
   };
   return (
     <>
@@ -50,7 +49,7 @@ const Header = () => {
                 <Upmotion width={140} height={40} />
               </Stack>
             </Link>
-            <StaggerParent delayChildren={3} staggerDuration={0.2}>
+            <StaggerParent delayChildren={2.5} staggerDuration={0.2}>
               <Stack
                 flexDirection="row"
                 gap={4}

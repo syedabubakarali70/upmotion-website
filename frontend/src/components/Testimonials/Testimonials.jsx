@@ -181,7 +181,7 @@ const Testimonials = () => {
             ))}
           </Swiper>
           <Stack flexDirection="row" gap={1} justifyContent="center">
-            <FadeRight>
+            <FadeRight amount="all">
               <IconButton
                 onClick={() => swiperRef.current?.slidePrev()}
                 sx={{
@@ -192,7 +192,7 @@ const Testimonials = () => {
                 <ArrowBackIosNewIcon />
               </IconButton>
             </FadeRight>
-            <FadeLeft>
+            <FadeLeft amount="all">
               <IconButton
                 onClick={() => swiperRef.current?.slideNext()}
                 sx={{

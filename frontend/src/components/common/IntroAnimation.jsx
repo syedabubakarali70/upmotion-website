@@ -84,7 +84,7 @@ const IntroAnimation = () => {
             variants={{ initial: { opacity: 1 }, animate: { opacity: 0 } }}
             initial="initial"
             animate="animate"
-            transition={{ delay: 2.5, duration: 0.5 }}
+            transition={{ delay: 2.5, duration: 2 }}
             onAnimationComplete={() => setDisplay("none")}
           >
             <Upmotion width={140} height={40} />

@@ -30,10 +30,6 @@ export const fadeRightVariants = {
   whileInView: {
     x: 0,
     opacity: 1,
-    transition: {
-      type,
-      duration,
-    },
   },
 };
 export const fadeLeftVariants = {
@@ -41,10 +37,6 @@ export const fadeLeftVariants = {
   whileInView: {
     x: 0,
     opacity: 1,
-    transition: {
-      type,
-      duration,
-    },
   },
 };
 
