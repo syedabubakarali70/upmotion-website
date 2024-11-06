@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Upmotion from "../icons/Upmotion";
 import { useState } from "react";
+import { useDelay } from "../../Context/DelayContext.jsx";
 
 const backgroundVariants = {
   animate: {
@@ -34,6 +35,7 @@ const logoVariants = {
 
 const IntroAnimation = () => {
   const [justifyContent, setJustifyContent] = useState("center");
+  const { setDelay } = useDelay();
   // const [opacity, setOpacity] = useState(1);
   const [display, setDisplay] = useState("flex");
   return (
@@ -85,7 +87,10 @@ const IntroAnimation = () => {
             initial="initial"
             animate="animate"
             transition={{ delay: 2.5, duration: 2 }}
-            onAnimationComplete={() => setDisplay("none")}
+            onAnimationComplete={() => {
+              setDisplay("none");
+              setDelay(0);
+            }}
           >
             <Upmotion width={140} height={40} />
           </motion.div>

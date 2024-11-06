@@ -3,14 +3,14 @@
 import { Stack, Typography } from "@mui/material";
 import PaddingBlock from "../common/PaddingBlock";
 import { FadeLeft, FadeRight } from "../animations";
-
-const delay = 2.5;
+import { useDelay } from "../../Context/DelayContext";
 const duration = 2;
 const heading = "Transforming Ideas Into Digital Excellence";
 const content =
   "At Upmotion Tech, we deliver custom web and app development, IT outsourcing, and SEO solutions tailored to fuel your business growth. Our team of experts harnesses cutting-edge technology and industry insights to drive impactful results, helping you scale with confidence in an ever-evolving digital landscape.";
 
 const HeroSection = () => {
+  const { delay } = useDelay();
   return (
     <PaddingBlock paddingBlock={{ mobile: 0, tablet: 0, laptop: 0 }}>
       <Stack

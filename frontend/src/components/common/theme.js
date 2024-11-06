@@ -30,6 +30,7 @@ let theme = createTheme({
     logo: { main: "var(--palette-primary-main)" },
     text: {
       primary: "var(--palette-primary-dark)",
+      secondary: "var(--palette-primary-dark)",
     },
   },
   breakpoints: {

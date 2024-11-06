@@ -2,7 +2,7 @@ import { Box, Paper, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import PaddingBlock from "../common/PaddingBlock";
 import { motion } from "framer-motion";
-import { fadeUpVariants } from "../animations/variants";
+import { fadeLeftVariants } from "../animations/variants";
 import { staggerParentValues } from "../animations/StaggerParent";
 import GridContainer from "../common/GridContainer";
 
@@ -54,11 +54,11 @@ const Services = () => {
       <GridContainer>
         {services.map(service => (
           <MotionGrid
-            variants={fadeUpVariants}
+            variants={fadeLeftVariants}
             initial="initial"
             whileInView="whileInView"
-            whileHover={{ y: -10 }}
-            viewport={{ once: staggerParentValues.once, amount: "all" }}
+            transition={{ duration: 1 }}
+            viewport={{ once: staggerParentValues.once, amount: "0.7" }}
             key={service.title}
             size={1}
           >
