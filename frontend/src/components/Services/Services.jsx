@@ -2,7 +2,7 @@ import { Box, Paper, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import PaddingBlock from "../common/PaddingBlock";
 import { motion } from "framer-motion";
-import { fadeLeftVariants } from "../animations/variants";
+import { fadeLeftVariants, fadeRightVariants } from "../animations/variants";
 import { staggerParentValues } from "../animations/StaggerParent";
 import GridContainer from "../common/GridContainer";
 
@@ -54,7 +54,7 @@ const Services = () => {
       <GridContainer>
         {services.map((service, index) => (
           <MotionGrid
-            variants={fadeLeftVariants}
+            variants={index > 2 ? fadeRightVariants : fadeLeftVariants}
             initial="initial"
             whileInView="whileInView"
             transition={{ duration: 1, delay: index * 0.2 }}

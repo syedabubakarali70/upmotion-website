@@ -1,8 +1,10 @@
 import { Box, Paper, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import PaddingBlock from "../common/PaddingBlock";
-import { FadeUp } from "../animations";
+import { motion } from "framer-motion";
 import GridContainer from "../common/GridContainer";
+import { fadeUpVariants } from "../animations/variants";
+import { StaggerParent } from "../animations";
 
 const values = [
   {
@@ -41,46 +43,41 @@ const Values = () => {
         The people behind the work. <br /> 90% of our team ranks among the
         global top 5 in their fields.
       </Typography>
-      <GridContainer desktop={4}>
-        {values.map((value, index) => (
-          <Grid key={index} size={1} sx={{ p: "1px" }}>
-            <FadeUp style={{ height: "100%" }}>
-              <Paper
-                sx={{
-                  p: 2,
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 1,
-                  borderRadius: 4,
-                  overflow: "hidden",
-                  height: "100%",
-                }}
-              >
-                <Box
-                  sx={
-                    {
-                      // width: { mobile: "40px", laptop: "64px" },
-                      // height: { mobile: "40px", laptop: "64px" },
-                    }
-                  }
+      <StaggerParent staggerDuration={0.5}>
+        <GridContainer desktop={4}>
+          {values.map((value, index) => (
+            <Grid key={index} size={1} sx={{ p: "1px" }}>
+              <motion.div style={{ height: "100%" }} variants={fadeUpVariants}>
+                <Paper
+                  sx={{
+                    p: 2,
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 1,
+                    borderRadius: 4,
+                    overflow: "hidden",
+                    height: "100%",
+                  }}
                 >
-                  <img src={value.icon} />
-                </Box>
-                <Typography
-                  variant="h4"
-                  fontWeight={500}
-                  fontFamily="Poppins-Medium"
-                >
-                  {value.heading}
-                </Typography>
-                <Typography variant="body2" fontFamily="Poppins-Medium">
-                  {value.description}
-                </Typography>
-              </Paper>
-            </FadeUp>
-          </Grid>
-        ))}
-      </GridContainer>
+                  <Box>
+                    <img src={value.icon} />
+                  </Box>
+                  <Typography
+                    variant="h4"
+                    fontWeight={500}
+                    fontFamily="Poppins-Medium"
+                  >
+                    {value.heading}
+                  </Typography>
+                  <Typography variant="body2" fontFamily="Poppins-Medium">
+                    {value.description}
+                  </Typography>
+                </Paper>
+              </motion.div>
+            </Grid>
+          ))}
+        </GridContainer>
+      </StaggerParent>
     </PaddingBlock>
   );
 };

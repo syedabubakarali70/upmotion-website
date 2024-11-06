@@ -12,7 +12,7 @@ const GridContainer = ({
       columns={{ mobile, tablet, laptop, desktop }}
       container
       spacing={3}
-      sx={{ overflowX: "hidden" }}
+      sx={{ overflowX: "hidden", scrollbarWidth: "none" }}
     >
       {children}
     </Grid>

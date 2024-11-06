@@ -153,7 +153,8 @@ const ContactUs = () => {
         <Stack
           sx={{
             width: { mobile: "100%", tablet: "40%" },
-            justifyContent: "center",
+            mt: { mboile: 0, laptop: "4rem" },
+            // justifyContent: "center",
           }}
         >
           <FadeRight>
@@ -170,7 +171,7 @@ const ContactUs = () => {
             alignItems: { mboile: "stretch", laptop: "flex-end" },
           }}
         >
-          <FadeLeft>
+          <FadeLeft amount={0.7}>
             <form ref={form} onSubmit={sendEmail}>
               <Paper
                 sx={{

@@ -8,10 +8,10 @@ export const fadeUpVariants = {
   whileInView: {
     y: 0,
     opacity: 1,
-    transition: {
-      type,
-      duration,
-    },
+    // transition: {
+    //   type,
+    //   duration,
+    // },
   },
 };
 export const fadeDownVariants = {

@@ -83,14 +83,17 @@ const Testimonials = () => {
         What our happy customers are saying
       </Typography>
       <Stack
-        flexDirection="row"
+        flexDirection={{ mobile: "column", laptop: "row" }}
         alignItems={"center"}
         justifyContent="space-between"
-        width={{ laptop: "80%" }}
+        width={{ mobile: "100%", laptop: "80%" }}
         mx="auto"
         py={6}
       >
-        <Stack sx={{ width: "50%" }} justifyContent={"center"}>
+        <Stack
+          sx={{ width: { mobile: "100%", laptop: "50%" } }}
+          justifyContent={"center"}
+        >
           <Swiper
             speed={2000}
             loop
@@ -221,31 +224,6 @@ const Testimonials = () => {
           </Stack>
         </Stack>
       </Stack>
-
-      {/* <Stack flexDirection="row" gap={1} justifyContent="center">
-        <FadeRight amount="all">
-          <IconButton
-            onClick={() => swiperRef.current?.slidePrev()}
-            sx={{
-              backgroundColor: "var(--palette-primary-main)",
-              color: "var(--palette-background-default)",
-            }}
-          >
-            <ArrowBackIosNewIcon />
-          </IconButton>
-        </FadeRight>
-        <FadeLeft amount="all">
-          <IconButton
-            onClick={() => swiperRef.current?.slideNext()}
-            sx={{
-              backgroundColor: "var(--palette-primary-main)",
-              color: "var(--palette-background-default)",
-            }}
-          >
-            <ArrowForwardIosIcon />
-          </IconButton>
-        </FadeLeft>
-      </Stack> */}
     </PaddingBlock>
   );
 };

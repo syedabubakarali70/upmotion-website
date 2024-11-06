@@ -81,7 +81,9 @@ const IntroAnimation = () => {
             setJustifyContent("flex-start");
             setWidth("140px");
           }}
-          // onLayoutAnimationComplete={() => setOpacity(0)}
+          onLayoutAnimationComplete={() =>
+            (document.body.style.overflowY = "auto")
+          }
         >
           <motion.div
             variants={{ initial: { opacity: 1 }, animate: { opacity: 0 } }}
@@ -91,7 +93,6 @@ const IntroAnimation = () => {
             onAnimationComplete={() => {
               setDisplay("none");
               setDelay(0);
-              document.body.style.overflowY = "auto";
             }}
           >
             <Upmotion width={140} height={40} />
