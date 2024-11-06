@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import Upmotion from "../icons/Upmotion";
 import { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
 
 const backgroundVariants = {
   animate: {
@@ -34,14 +33,9 @@ const logoVariants = {
 };
 
 const IntroAnimation = () => {
-  const handleLogoClick = e => {
-    e.preventDefault();
-    Navigate("/", { replace: true });
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    // window.location.reload();
-  };
   const [justifyContent, setJustifyContent] = useState("center");
-  const [width, setWidth] = useState("100vw");
+  // const [opacity, setOpacity] = useState(1);
+  const [display, setDisplay] = useState("flex");
   return (
     <>
       <motion.div
@@ -63,9 +57,9 @@ const IntroAnimation = () => {
       ></motion.div>
       <motion.div
         style={{
-          width: width,
+          width: "100vw",
           position: "fixed",
-          display: "flex",
+          display: display,
           zIndex: 1010,
           top: 0,
           paddingInline: "2vw",
@@ -76,18 +70,25 @@ const IntroAnimation = () => {
       >
         <motion.div
           variants={logoVariants}
+          style={{ paddingTop: "2px" }}
           initial="initial"
-          whileInView={"animate"}
-          viewport={{ once: true }}
+          animate={"animate"}
           layout
+          // transition={{ type: "spring", duration: 1 }}
           onAnimationComplete={() => {
             setJustifyContent("flex-start");
-            setWidth("150px");
           }}
+          // onLayoutAnimationComplete={() => setOpacity(0)}
         >
-          <Link to="/" onClick={handleLogoClick}>
+          <motion.div
+            variants={{ initial: { opacity: 1 }, animate: { opacity: 0 } }}
+            initial="initial"
+            animate="animate"
+            transition={{ delay: 2.5, duration: 0.5 }}
+            onAnimationComplete={() => setDisplay("none")}
+          >
             <Upmotion width={140} height={40} />
-          </Link>
+          </motion.div>
         </motion.div>
       </motion.div>
     </>
