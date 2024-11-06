@@ -20,7 +20,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Header />
-      <IntroAnimation />
+      {/* <IntroAnimation /> */}
       <div className="wrapper">
         <ScrollToTop />
         <Outlet context="hero-section" />

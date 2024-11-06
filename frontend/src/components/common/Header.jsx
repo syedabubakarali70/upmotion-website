@@ -1,5 +1,5 @@
 import { Box, Drawer, IconButton, Stack } from "@mui/material";
-// import Upmotion from "../icons/Upmotion";
+import Upmotion from "../icons/Upmotion";
 import Navbar from "./Navbar";
 import { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -47,7 +47,7 @@ const Header = () => {
                 width={140}
                 // sx={{ visibility: "hidden" }}
               >
-                {/* <Upmotion width={140} height={40} /> */}
+                <Upmotion width={140} height={40} />
               </Stack>
             </Link>
             <StaggerParent delayChildren={3} staggerDuration={0.2}>

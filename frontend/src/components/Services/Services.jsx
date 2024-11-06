@@ -71,7 +71,7 @@ const Services = () => {
                 p: { mobile: 2, laptop: 4 },
                 borderRadius: 4,
                 ":hover": {
-                  boxShadow: "0 0.4rem 7rem #e2e2e233",
+                  boxShadow: "0 0.4rem 3rem #aaa",
                   outline: "0.1rem solid rgba(255, 255, 255, 0.288)",
                 },
               }}
@@ -80,8 +80,7 @@ const Services = () => {
                 sx={{
                   width: { mobile: "40px", laptop: "64px" },
                   height: { mobile: "40px", laptop: "64px" },
-                  backgroundColor:
-                    "rgba(var(--palette-primary-mainChannel),0.8)",
+                  backgroundColor: "var(--palette-green-main)",
                   mask: `url(${service.img}) no-repeat center / contain`,
                   WebkitMask: `url(${service.img}) no-repeat center / contain`,
                 }}

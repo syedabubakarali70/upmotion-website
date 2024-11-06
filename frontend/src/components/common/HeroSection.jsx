@@ -20,7 +20,7 @@ const HeroSection = ({ heading, content }) => {
         gap={4}
         sx={{ position: "relative", overflow: "hidden" }}
       >
-        <Box
+        {/* <Box
           sx={{
             position: "absolute",
             top: 0,
@@ -58,7 +58,7 @@ const HeroSection = ({ heading, content }) => {
             left={aboveMobile ? "20%" : "20px"}
             duration={15}
           />
-        </Box>
+        </Box> */}
 
         <ScaleIn style={{ width: "100%", zIndex: 5 }}>
           <Typography
