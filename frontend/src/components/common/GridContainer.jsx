@@ -8,7 +8,12 @@ const GridContainer = ({
   desktop = 3,
 }) => {
   return (
-    <Grid columns={{ mobile, tablet, laptop, desktop }} container spacing={3}>
+    <Grid
+      columns={{ mobile, tablet, laptop, desktop }}
+      container
+      spacing={3}
+      sx={{ overflowX: "hidden" }}
+    >
       {children}
     </Grid>
   );

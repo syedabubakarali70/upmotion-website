@@ -57,7 +57,7 @@ const Team = () => {
       </Typography>
       <GridContainer desktop={4}>
         {teamData.map((member, index) => (
-          <Grid key={index} size={1}>
+          <Grid key={index} size={1} sx={{ p: "1px" }}>
             <FadeUp style={{ height: "100%" }}>
               <Paper
                 sx={{

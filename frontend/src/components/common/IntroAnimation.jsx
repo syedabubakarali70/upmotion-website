@@ -36,7 +36,7 @@ const logoVariants = {
 const IntroAnimation = () => {
   const [justifyContent, setJustifyContent] = useState("center");
   const { setDelay } = useDelay();
-  // const [opacity, setOpacity] = useState(1);
+  const [width, setWidth] = useState("100vw");
   const [display, setDisplay] = useState("flex");
   return (
     <>
@@ -59,7 +59,7 @@ const IntroAnimation = () => {
       ></motion.div>
       <motion.div
         style={{
-          width: "100vw",
+          width: width,
           position: "fixed",
           display: display,
           zIndex: 1010,
@@ -79,6 +79,7 @@ const IntroAnimation = () => {
           // transition={{ type: "spring", duration: 1 }}
           onAnimationComplete={() => {
             setJustifyContent("flex-start");
+            setWidth("140px");
           }}
           // onLayoutAnimationComplete={() => setOpacity(0)}
         >
@@ -90,6 +91,7 @@ const IntroAnimation = () => {
             onAnimationComplete={() => {
               setDisplay("none");
               setDelay(0);
+              document.body.style.overflowY = "auto";
             }}
           >
             <Upmotion width={140} height={40} />

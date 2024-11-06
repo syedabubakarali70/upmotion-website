@@ -52,14 +52,15 @@ const Services = () => {
         your digital transformation journey.
       </Typography>
       <GridContainer>
-        {services.map(service => (
+        {services.map((service, index) => (
           <MotionGrid
             variants={fadeLeftVariants}
             initial="initial"
             whileInView="whileInView"
-            transition={{ duration: 1 }}
+            transition={{ duration: 1, delay: index * 0.2 }}
             viewport={{ once: staggerParentValues.once, amount: "0.7" }}
             key={service.title}
+            sx={{ p: "1px" }}
             size={1}
           >
             <Paper
@@ -70,10 +71,10 @@ const Services = () => {
                 gap: 2,
                 p: { mobile: 2, laptop: 4 },
                 borderRadius: 4,
-                ":hover": {
-                  boxShadow: "0 0.4rem 3rem #aaa",
-                  outline: "0.1rem solid rgba(255, 255, 255, 0.288)",
-                },
+                // ":hover": {
+                //   boxShadow: "0 0.4rem 3rem #aaa",
+                //   outline: "0.1rem solid rgba(255, 255, 255, 0.288)",
+                // },
               }}
             >
               <Box

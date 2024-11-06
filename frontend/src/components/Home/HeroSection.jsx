@@ -64,28 +64,27 @@ const HeroSection = () => {
         </Stack>
         <Stack sx={{ flex: 1 }} justifyContent={"center"}>
           <FadeLeft extraAnimationProps={{ delay: delay }} duration={duration}>
-            <img src="/coding.gif" width={"100%"} />
-          </FadeLeft>
-          {/* <div
-            style={{
-              width: "70%",
-              marginInline: "auto",
-              height: 0,
-              paddingBottom: "56%",
-              position: "relative",
-            }}
-          >
-            <iframe
-              src="https://giphy.com/embed/26tn33aiTi1jkl6H6"
-              width="100%"
-              height="100%"
-              style={{ position: "absolute" }}
-              frameBorder="0"
-              allowFullScreen
-              title="Embedded Giphy"
-            ></iframe>
-          </div> */}
-          {/* <>
+            {/* <img src="/coding.gif" width={"100%"} /> */}
+            <div
+              style={{
+                width: "70%",
+                marginInline: "auto",
+                height: 0,
+                paddingBottom: "56%",
+                position: "relative",
+              }}
+            >
+              <iframe
+                src="https://giphy.com/embed/26tn33aiTi1jkl6H6"
+                width="100%"
+                height="100%"
+                style={{ position: "absolute" }}
+                frameBorder="0"
+                allowFullScreen
+                title="Embedded Giphy"
+              ></iframe>
+            </div>
+            {/* <>
             <div
               style={{
                 width: "100%",
@@ -105,6 +104,7 @@ const HeroSection = () => {
               />
             </div>
           </> */}
+          </FadeLeft>
         </Stack>
       </Stack>
     </PaddingBlock>

@@ -1,6 +1,7 @@
 import { useOutletContext } from "react-router-dom";
 import HeroSection from "../components/AboutUs/HeroSection";
 import Values from "../components/AboutUs/Values";
+import Testimonials from "../components/AboutUs/Testimonials";
 
 const AboutUs = () => {
   const context = useOutletContext();
@@ -10,6 +11,7 @@ const AboutUs = () => {
       {context === "rest" && (
         <>
           <Values />
+          <Testimonials />
         </>
       )}
     </>

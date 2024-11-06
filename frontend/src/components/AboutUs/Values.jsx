@@ -43,7 +43,7 @@ const Values = () => {
       </Typography>
       <GridContainer desktop={4}>
         {values.map((value, index) => (
-          <Grid key={index} size={1}>
+          <Grid key={index} size={1} sx={{ p: "1px" }}>
             <FadeUp style={{ height: "100%" }}>
               <Paper
                 sx={{
@@ -56,11 +56,15 @@ const Values = () => {
                   height: "100%",
                 }}
               >
-                <Box sx={{}}>
-                  <img
-                    src={value.icon}
-                    //    width="100%" height="100%"
-                  />
+                <Box
+                  sx={
+                    {
+                      // width: { mobile: "40px", laptop: "64px" },
+                      // height: { mobile: "40px", laptop: "64px" },
+                    }
+                  }
+                >
+                  <img src={value.icon} />
                 </Box>
                 <Typography
                   variant="h4"
