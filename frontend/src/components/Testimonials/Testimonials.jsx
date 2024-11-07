@@ -184,10 +184,12 @@ const Testimonials = () => {
             <FadeRight amount="all">
               <IconButton
                 onClick={() => swiperRef.current?.slidePrev()}
-                sx={{
-                  backgroundColor: "var(--palette-primary-main)",
-                  color: "var(--palette-background-default)",
-                }}
+                sx={
+                  {
+                    // backgroundColor: "var(--palette-primary-main)",
+                    // color: "var(--palette-background-default)",
+                  }
+                }
               >
                 <ArrowBackIosNewIcon />
               </IconButton>
@@ -195,10 +197,12 @@ const Testimonials = () => {
             <FadeLeft amount="all">
               <IconButton
                 onClick={() => swiperRef.current?.slideNext()}
-                sx={{
-                  backgroundColor: "var(--palette-primary-main)",
-                  color: "var(--palette-background-default)",
-                }}
+                sx={
+                  {
+                    // backgroundColor: "var(--palette-primary-main)",
+                    // color: "var(--palette-background-default)",
+                  }
+                }
               >
                 <ArrowForwardIosIcon />
               </IconButton>

@@ -47,7 +47,7 @@ const Projects = () => {
           "Upmotion Tech's projects showcase our expertise in delivering tailored, impactful digital solutions that drive results."
         }
       </Typography>
-      <Stack>
+      <Stack gap={4}>
         {projects.map(project => (
           <ProjectCard
             heading={project.heading}

@@ -16,7 +16,7 @@ const HeroSection = () => {
         minHeight="100vh"
         alignItems="center"
         pt={"max(calc(50vh - 200px), 125px)"}
-        width={{ mobile: "100%", laptop: "1000px", desktop: "1240px" }}
+        // width={{ mobile: "100%", laptop: "1000px", desktop: "1240px" }}
         mx="auto"
         gap={3}
       >

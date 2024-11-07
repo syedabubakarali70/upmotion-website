@@ -30,7 +30,7 @@ const ProjectCard = ({ heading, description }) => {
       <Stack
         sx={{
           height: "100%",
-          flexDirection: "column",
+          flexDirection: "row",
           gap: 2,
           p: { mobile: 2, laptop: 4 },
           py: 10,
@@ -42,25 +42,20 @@ const ProjectCard = ({ heading, description }) => {
           // },
         }}
       >
-        <Stack width={{ mobile: "100%", laptop: "50%" }}>
-          <Typography
-            fontWeight={700}
-            variant="h4"
-            textAlign="center"
-            color="background.default"
-          >
+        <Stack width={{ mobile: "100%", laptop: "50%" }} gap={2}>
+          <Typography fontWeight={700} variant="h4">
             {heading}
           </Typography>
-          <Typography color="background.default">{description}</Typography>
+          <Typography>{description}</Typography>
         </Stack>
         <Box
           sx={{
             width: "50%",
             flex: 1,
-            height: "6rem",
+            // height: "6rem",
             backgroundColor: "var(--palette-background-default)",
             borderRadius: 4,
-            // border: "1px solid white",
+            border: "1px solid white",
           }}
         ></Box>
       </Stack>
