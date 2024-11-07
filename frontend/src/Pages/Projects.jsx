@@ -3,6 +3,7 @@ import HeroSection from "../components/Projects/HeroSection";
 import Projects from "../components/Projects/Projects";
 const ProjectsPage = () => {
   const context = useOutletContext();
+
   return (
     <>
       {context === "hero-section" && <HeroSection />}
