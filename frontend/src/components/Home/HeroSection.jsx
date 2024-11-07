@@ -14,7 +14,7 @@ const HeroSection = () => {
     <PaddingBlock paddingBlock={{ mobile: 0, tablet: 0, laptop: 0 }}>
       <Stack
         minHeight="100vh"
-        alignItems="center"
+        // alignItems="center"
         pt={"max(calc(50vh - 200px), 125px)"}
         width={{ mobile: "100%", laptop: "1000px", desktop: "1240px" }}
         mx="auto"
@@ -50,8 +50,9 @@ const HeroSection = () => {
           display="flex"
           mt="auto"
           mb="100px"
-          alignItems="center"
-          justifyContent="center"
+          // alignItems="center"
+          // justifyContent="center"
+          // width="100%"
         >
           <motion.div
             style={{ paddingTop: "8px" }}
@@ -60,10 +61,10 @@ const HeroSection = () => {
             animate="whileInView"
             transition={{ delay: delay, duration: duration, type: "spring" }}
           >
-            <UpmotionLogo height="100%" width="13vw" />
+            <UpmotionLogo height="100%" width="14.5vw" />
           </motion.div>
           <FadeLeft extraAnimationProps={{ delay: delay }} duration={duration}>
-            <Typography variant="h1" fontSize={"13vw"}>
+            <Typography variant="h1" fontSize={"14.5vw"}>
               PMOTION
             </Typography>
           </FadeLeft>
