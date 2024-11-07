@@ -1,10 +1,15 @@
-import { Box, Paper, Typography } from "@mui/material";
+import { Paper, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import PaddingBlock from "../common/PaddingBlock";
 import { motion } from "framer-motion";
 import GridContainer from "../common/GridContainer";
 import { fadeUpVariants } from "../animations/variants";
 import { StaggerParent } from "../animations";
+
+const cardTextTransition = {
+  duration: 1,
+  type: "spring",
+};
 
 const values = [
   {
@@ -55,23 +60,38 @@ const Values = () => {
                     flexDirection: "column",
                     gap: 1,
                     borderRadius: 4,
-                    overflow: "hidden",
+                    overflowY: "hidden",
                     height: "100%",
                   }}
                 >
-                  <Box>
-                    <img src={value.icon} />
-                  </Box>
-                  <Typography
-                    variant="h4"
-                    fontWeight={500}
-                    fontFamily="Poppins-Medium"
-                  >
-                    {value.heading}
-                  </Typography>
-                  <Typography variant="body2" fontFamily="Poppins-Medium">
-                    {value.description}
-                  </Typography>
+                  <StaggerParent staggerDuration={0.5}>
+                    <motion.div
+                      variants={fadeUpVariants}
+                      transition={cardTextTransition}
+                    >
+                      <img src={value.icon} />
+                    </motion.div>
+                    <motion.div
+                      variants={fadeUpVariants}
+                      transition={cardTextTransition}
+                    >
+                      <Typography
+                        variant="h4"
+                        fontWeight={500}
+                        fontFamily="Poppins-Medium"
+                      >
+                        {value.heading}
+                      </Typography>
+                    </motion.div>
+                    <motion.div
+                      variants={fadeUpVariants}
+                      transition={cardTextTransition}
+                    >
+                      <Typography variant="body2" fontFamily="Poppins-Medium">
+                        {value.description}
+                      </Typography>
+                    </motion.div>
+                  </StaggerParent>
                 </Paper>
               </motion.div>
             </Grid>

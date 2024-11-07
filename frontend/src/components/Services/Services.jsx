@@ -57,7 +57,7 @@ const Services = () => {
             variants={index > 2 ? fadeRightVariants : fadeLeftVariants}
             initial="initial"
             whileInView="whileInView"
-            transition={{ duration: 1, delay: index * 0.2 }}
+            transition={{ duration: 0.5, delay: index * 0.2 }}
             viewport={{ once: staggerParentValues.once, amount: "0.7" }}
             key={service.title}
             sx={{ p: "1px" }}
