@@ -1,4 +1,4 @@
-export const duration = 2;
+export const duration = 1;
 export const type = "spring";
 export const once = true;
 export const amount = "some";
@@ -26,14 +26,14 @@ export const fadeDownVariants = {
   },
 };
 export const fadeRightVariants = {
-  initial: { x: -200, opacity: 0 },
+  initial: { x: -100, opacity: 0 },
   whileInView: {
     x: 0,
     opacity: 1,
   },
 };
 export const fadeLeftVariants = {
-  initial: { x: 200, opacity: 0 },
+  initial: { x: 100, opacity: 0 },
   whileInView: {
     x: 0,
     opacity: 1,

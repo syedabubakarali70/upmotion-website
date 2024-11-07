@@ -14,7 +14,7 @@ let theme = createTheme({
     },
     background: {
       // default: "var(--palette-primary-dark)",
-      default: "linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 25%)",
+      // default: "linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 25%)",
     },
     green: {
       mainChannel: " 0,170,78",
@@ -82,8 +82,8 @@ let theme = createTheme({
     MuiPaper: {
       styleOverrides: {
         root: {
-          // backgroundColor: "#ffffff80",
-          border: "1px solid rgba(var(--palette-primary-dark),0.5)",
+          backgroundColor: "#0f0f0f00",
+          border: "1px solid rgba(255, 255, 255, 0.1)",
         },
       },
     },

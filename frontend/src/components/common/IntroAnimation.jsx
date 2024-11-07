@@ -62,7 +62,7 @@ const IntroAnimation = () => {
       <MotionBox
         sx={{
           width: {
-            mobile: "100%",
+            mobile: "100vw",
             laptop: "1000px",
             desktop: "1240px",
           },
@@ -70,8 +70,8 @@ const IntroAnimation = () => {
           display: display,
           zIndex: 1010,
           top: 0,
-          left: "50%",
-          transform: "translateX(-50%)",
+          left: { mobile: "0", laptop: "50%" },
+          transform: { laptop: "translateX(-50%)" },
           paddingInline: "2vw",
           justifyContent: justifyContent,
           // border: "1px solid white",
