@@ -2,6 +2,9 @@ import { motion } from "framer-motion";
 import Upmotion from "../icons/Upmotion";
 import { useState } from "react";
 import { useDelay } from "../../Context/DelayContext.jsx";
+import { Box } from "@mui/material";
+
+const MotionBox = motion.create(Box);
 
 const backgroundVariants = {
   animate: {
@@ -36,7 +39,6 @@ const logoVariants = {
 const IntroAnimation = () => {
   const [justifyContent, setJustifyContent] = useState("center");
   const { setDelay } = useDelay();
-  const [width, setWidth] = useState("100vw");
   const [display, setDisplay] = useState("flex");
   return (
     <>
@@ -48,8 +50,8 @@ const IntroAnimation = () => {
           minHeight: "100dvh",
           width: "100vw",
           position: "absolute",
-          background: "var(--palette-primary-light)",
-          backgroundSize: "100% 100vh",
+          background: "black",
+          backgroundSize: "100% 100dvh",
           zIndex: "1005",
           display: "flex",
           alignItems: "center",
@@ -57,15 +59,23 @@ const IntroAnimation = () => {
           flexDirection: "column",
         }}
       ></motion.div>
-      <motion.div
-        style={{
-          width: width,
+      <MotionBox
+        sx={{
+          width: {
+            mobile: "100%",
+            laptop: "1000px",
+            desktop: "1240px",
+          },
           position: "fixed",
           display: display,
           zIndex: 1010,
           top: 0,
+          left: "50%",
+          transform: "translateX(-50%)",
           paddingInline: "2vw",
           justifyContent: justifyContent,
+          // border: "1px solid white",
+          mx: "auto",
           paddingBlock: "1vh",
           height: "60px",
         }}
@@ -76,10 +86,9 @@ const IntroAnimation = () => {
           initial="initial"
           animate={"animate"}
           layout
-          // transition={{ type: "spring", duration: 1 }}
           onAnimationComplete={() => {
             setJustifyContent("flex-start");
-            setWidth("140px");
+            // setWidth({ mobile: "140px", laptop: "140px", desktop: "140px" });
           }}
           onLayoutAnimationComplete={() =>
             (document.body.style.overflowY = "auto")
@@ -89,7 +98,7 @@ const IntroAnimation = () => {
             variants={{ initial: { opacity: 1 }, animate: { opacity: 0 } }}
             initial="initial"
             animate="animate"
-            transition={{ delay: 2.5, duration: 2 }}
+            transition={{ delay: 2.5, duration: 1 }}
             onAnimationComplete={() => {
               setDisplay("none");
               setDelay(0);
@@ -98,7 +107,7 @@ const IntroAnimation = () => {
             <Upmotion width={140} height={40} />
           </motion.div>
         </motion.div>
-      </motion.div>
+      </MotionBox>
     </>
   );
 };

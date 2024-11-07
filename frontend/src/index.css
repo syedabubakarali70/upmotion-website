@@ -27,7 +27,11 @@
 /* Apply the font globally */
 body {
   overflow-x: hidden;  
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
+  }
+  .full-width-text {
+    display: inline-block;
+    transform-origin: left;
   }
 
   /* .wrapper {

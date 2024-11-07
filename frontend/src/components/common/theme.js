@@ -3,7 +3,7 @@ import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 let theme = createTheme({
   cssVariables: { cssVarPrefix: "" },
   palette: {
-    mode: "light",
+    mode: "dark",
     primary: {
       mainChannel: "20,96,231",
       darkChannel: "9,28, 56",
@@ -13,7 +13,8 @@ let theme = createTheme({
       dark: "rgb(var(--palette-primary-darkChannel))",
     },
     background: {
-      default: "var(--palette-primary-light)",
+      // default: "var(--palette-primary-dark)",
+      default: "linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 25%)",
     },
     green: {
       mainChannel: " 0,170,78",
@@ -29,8 +30,8 @@ let theme = createTheme({
     },
     logo: { main: "var(--palette-primary-main)" },
     text: {
-      primary: "var(--palette-primary-dark)",
-      secondary: "var(--palette-primary-dark)",
+      primary: "var(--palette-primary-light)",
+      secondary: "var(--palette-primary-light)",
     },
   },
   breakpoints: {
@@ -81,7 +82,7 @@ let theme = createTheme({
     MuiPaper: {
       styleOverrides: {
         root: {
-          backgroundColor: "#ffffff80",
+          // backgroundColor: "#ffffff80",
           border: "1px solid rgba(var(--palette-primary-dark),0.5)",
         },
       },

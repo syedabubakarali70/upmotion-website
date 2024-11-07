@@ -27,6 +27,7 @@ const Header = () => {
           backdropFilter: "blur(8px)",
           position: "fixed",
           py: "1vh",
+          // py: "40px",
           top: 0,
           zIndex: 1000,
           height: "60px",
@@ -37,7 +38,9 @@ const Header = () => {
             flexDirection="row"
             justifyContent="space-between"
             alignItems="center"
-            width="100%"
+            mx="auto"
+            // width={{ mobile: "100%", laptop: "1000px", desktop: "1240px" }}
+            width={"100%"}
           >
             <Link to="/" onClick={handleLogoClick}>
               <Stack

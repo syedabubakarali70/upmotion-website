@@ -12,9 +12,9 @@ const PaddingBlock = ({
       id={id}
       // paddingInline={{ mobile: 2, tablet: 4, laptop: 8, desktop: 12 }}
       paddingInline={"2vw"}
-      width={"100%"}
+      width={{ mobile: "100%", laptop: "1000px", desktop: "1240px" }}
       // maxWidth="100rem"
-      // mx="auto"
+      mx="auto"
     >
       {children}
     </Box>

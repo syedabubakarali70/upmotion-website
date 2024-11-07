@@ -171,7 +171,7 @@ const ContactUs = () => {
             alignItems: { mboile: "stretch", laptop: "flex-end" },
           }}
         >
-          <FadeLeft amount={0.7}>
+          <FadeLeft>
             <form ref={form} onSubmit={sendEmail}>
               <Paper
                 sx={{
