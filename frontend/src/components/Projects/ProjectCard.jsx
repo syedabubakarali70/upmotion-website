@@ -9,11 +9,11 @@ const ProjectCard = ({ heading, description, index }) => {
       <Stack
         sx={{
           height: "100%",
-          flexDirection: "row",
+          flexDirection: { mobile: "column", laptop: "row" },
           gap: 2,
           p: { mobile: 2, laptop: 4 },
           py: 10,
-          backgroundColor: "var(--palette-primary-dark)",
+          backgroundColor: "background.default",
           borderRadius: 4,
           position: "sticky",
           top: index * 100 + 50,
