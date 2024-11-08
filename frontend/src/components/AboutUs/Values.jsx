@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import GridContainer from "../common/GridContainer";
 import { fadeUpVariants } from "../animations/variants";
 import { StaggerParent } from "../animations";
+import ValueCard from "./ValueCard";
 
 const cardTextTransition = {
   duration: 1,
@@ -48,56 +49,56 @@ const Values = () => {
         The people behind the work. <br /> 90% of our team ranks among the
         global top 5 in their fields.
       </Typography>
-      <StaggerParent staggerDuration={0.5}>
-        <GridContainer desktop={4}>
-          {values.map((value, index) => (
-            <Grid key={index} size={1} sx={{ p: "1px" }}>
-              <motion.div style={{ height: "100%" }} variants={fadeUpVariants}>
-                <Paper
-                  sx={{
-                    p: 2,
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: 1,
-                    borderRadius: 4,
-                    overflowY: "hidden",
-                    height: "100%",
-                  }}
-                >
-                  <StaggerParent staggerDuration={0.5}>
-                    <motion.div
-                      variants={fadeUpVariants}
-                      transition={cardTextTransition}
+      {/* <StaggerParent staggerDuration={0.5}> */}
+      <GridContainer desktop={4}>
+        {values.map((value, index) => (
+          <Grid key={index} size={1} sx={{ p: "1px" }}>
+            <motion.div style={{ height: "100%" }} variants={fadeUpVariants}>
+              <Paper
+                sx={{
+                  p: 2,
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 1,
+                  borderRadius: 4,
+                  overflowY: "hidden",
+                  height: "100%",
+                }}
+              >
+                <StaggerParent staggerDuration={0.5}>
+                  <motion.div
+                    variants={fadeUpVariants}
+                    transition={cardTextTransition}
+                  >
+                    <img src={value.icon} />
+                  </motion.div>
+                  <motion.div
+                    variants={fadeUpVariants}
+                    transition={cardTextTransition}
+                  >
+                    <Typography
+                      variant="h4"
+                      fontWeight={500}
+                      fontFamily="Poppins-Medium"
                     >
-                      <img src={value.icon} />
-                    </motion.div>
-                    <motion.div
-                      variants={fadeUpVariants}
-                      transition={cardTextTransition}
-                    >
-                      <Typography
-                        variant="h4"
-                        fontWeight={500}
-                        fontFamily="Poppins-Medium"
-                      >
-                        {value.heading}
-                      </Typography>
-                    </motion.div>
-                    <motion.div
-                      variants={fadeUpVariants}
-                      transition={cardTextTransition}
-                    >
-                      <Typography variant="body2" fontFamily="Poppins-Medium">
-                        {value.description}
-                      </Typography>
-                    </motion.div>
-                  </StaggerParent>
-                </Paper>
-              </motion.div>
-            </Grid>
-          ))}
-        </GridContainer>
-      </StaggerParent>
+                      {value.heading}
+                    </Typography>
+                  </motion.div>
+                  <motion.div
+                    variants={fadeUpVariants}
+                    transition={cardTextTransition}
+                  >
+                    <Typography variant="body2" fontFamily="Poppins-Medium">
+                      {value.description}
+                    </Typography>
+                  </motion.div>
+                </StaggerParent>
+              </Paper>
+            </motion.div>
+          </Grid>
+        ))}
+      </GridContainer>
+      {/* </StaggerParent> */}
     </PaddingBlock>
   );
 };

@@ -40,7 +40,7 @@ const Projects = () => {
   return (
     <PaddingBlock>
       <Typography variant="h2" textAlign="center" mb={2}>
-        Our Projects
+        Our Case Studies
       </Typography>
       <Typography variant="body1" textAlign="center" mb={4}>
         {

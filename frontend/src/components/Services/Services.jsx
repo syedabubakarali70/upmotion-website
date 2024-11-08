@@ -58,7 +58,7 @@ const Services = () => {
             initial="initial"
             whileInView="whileInView"
             transition={{ duration: 0.5, delay: index * 0.2 }}
-            viewport={{ once: staggerParentValues.once, amount: "0.7" }}
+            viewport={{ once: staggerParentValues.once, amount: "0.9" }}
             key={service.title}
             sx={{ p: "1px" }}
             size={1}

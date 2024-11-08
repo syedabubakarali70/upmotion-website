@@ -202,9 +202,10 @@ const HeroSection = ({ heading, content }) => {
           >
             <Typography
               variant="h1"
+              fontFamily={"Poppins-Medium"}
               fontSize={{
-                mobile: "22vw",
-                desktop: "16.5rem",
+                mobile: "18vw",
+                desktop: "14rem",
               }}
             >
               pmotion

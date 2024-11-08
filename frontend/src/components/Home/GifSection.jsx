@@ -1,6 +1,7 @@
 import { Box, Stack, Typography } from "@mui/material";
 import PaddingBlock from "../common/PaddingBlock";
 import { useEffect, useRef, useState } from "react";
+import { debounce } from "lodash";
 
 const sections = [
   {
@@ -31,15 +32,29 @@ const sections = [
 
 const GifSection = () => {
   const containerRef = useRef(null);
+  const listRef = useRef(null);
   const [isParentInView, setIsParentInView] = useState(false);
 
   const handleScroll = () => {
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
-
-    // Check if the container is fully visible in the viewport
     setIsParentInView(rect.top <= 0 && rect.bottom >= window.innerHeight);
   };
+
+  const handleContainerWheel = debounce(e => {
+    if (isParentInView && listRef.current) {
+      e.preventDefault();
+
+      // Calculate the scroll snap amount (height of one section)
+      const sectionHeight = listRef.current.firstChild.clientHeight;
+
+      // Scroll by one section per wheel event (snap effect)
+      listRef.current.scrollBy({
+        top: e.deltaY > 0 ? sectionHeight : -sectionHeight,
+        behavior: "smooth",
+      });
+    }
+  }, 100); // Adjust debounce timing as needed
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -47,9 +62,16 @@ const GifSection = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   return (
     <PaddingBlock>
-      <Box ref={containerRef} position="relative" p={3} height={"200vh"}>
+      <Box
+        ref={containerRef}
+        position="relative"
+        p={3}
+        height={"200vh"}
+        onWheel={handleContainerWheel} // Attach the onWheel event to intercept scrolls
+      >
         <Stack
           flexDirection={{ mobile: "column", laptop: "row" }}
           maxHeight="100vh"
@@ -67,10 +89,11 @@ const GifSection = () => {
             <img src="/section/NTHO.gif" alt="" />
           </Stack>
           <Stack
+            ref={listRef}
             sx={{
-              overflowY: isParentInView ? "scroll" : "hidden", // Lock until full view
+              overflowY: isParentInView ? "scroll" : "hidden",
               scrollbarWidth: "none",
-              scrollSnapType: "y mandatory",
+              scrollSnapType: "y mandatory", // Ensure snap behavior
             }}
             flexDirection={{ mobile: "row", laptop: "column" }}
             width="100%"
@@ -82,7 +105,10 @@ const GifSection = () => {
                 minWidth="100%"
                 minHeight="100%"
                 justifyContent="center"
-                sx={{ scrollSnapAlign: "start", scrollSnapStop: "always" }}
+                sx={{
+                  scrollSnapAlign: "start", // Snap to the top of each section
+                  scrollSnapStop: "always",
+                }}
                 gap={3}
               >
                 <Typography variant="h1">{section.number}</Typography>

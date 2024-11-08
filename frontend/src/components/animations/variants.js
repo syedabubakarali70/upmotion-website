@@ -1,6 +1,6 @@
 export const duration = 1;
 export const type = "spring";
-export const once = true;
+export const once = false;
 export const amount = "some";
 
 export const fadeUpVariants = {
