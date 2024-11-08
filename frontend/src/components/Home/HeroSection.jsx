@@ -1,6 +1,6 @@
 // import HeroSectionContainer from "../common/HeroSection";
 
-import { Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import PaddingBlock from "../common/PaddingBlock";
 import UpmotionLogo from "../icons/UpmotionLogo";
 import { FadeLeft, FadeRight } from "../animations";
@@ -57,7 +57,7 @@ const HeroSection = () => {
           mt="auto"
           mb="100px"
           alignItems="flex-end"
-          justifyContent="center"
+          // justifyContent="center"
           // width="100%"
         >
           <motion.div
@@ -72,7 +72,15 @@ const HeroSection = () => {
               bounce: bounce,
             }}
           >
-            <UpmotionLogo height="100%" width="14.5vw" />
+            <Box
+              width={{
+                mobile: "17vw",
+                //  tablet: "8.5rem",
+                desktop: "14rem",
+              }}
+            >
+              <UpmotionLogo height="100%" width="100%" />
+            </Box>
           </motion.div>
           <FadeLeft
             extraAnimationProps={{ delay: delay, bounce: bounce }}
@@ -80,7 +88,12 @@ const HeroSection = () => {
           >
             <Typography
               variant="h1"
-              fontSize={"19vw"}
+              // fontSize={"18vw"}
+              fontSize={{
+                mobile: "22vw",
+                // tablet: "10.5rem",
+                desktop: "16.5rem",
+              }}
               // fontFamily={'"Kalam", cursive'}
             >
               pmotion
