@@ -16,11 +16,10 @@ const HeroSection = () => {
     <PaddingBlock paddingBlock={{ mobile: 0, tablet: 0, laptop: 0 }}>
       <Stack
         minHeight="100vh"
-        // alignItems="center"
         pt={"max(calc(50vh - 200px), 125px)"}
-        // width={{ mobile: "100%", laptop: "1000px", desktop: "1240px" }}
         mx="auto"
         gap={3}
+        sx={{ overflow: "hidden" }}
       >
         <Stack
           flexDirection={{ mobile: "column", laptop: "row" }}
@@ -58,7 +57,7 @@ const HeroSection = () => {
           mt="auto"
           mb="100px"
           alignItems="flex-end"
-          // justifyContent="center"
+          justifyContent="center"
           // width="100%"
         >
           <motion.div
