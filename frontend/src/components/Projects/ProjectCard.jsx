@@ -3,7 +3,7 @@ import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
 import { Stack } from "@mui/material";
 
-const ProjectCard = ({ heading, description }) => {
+const ProjectCard = ({ heading, description, index }) => {
   return (
     <>
       <Stack
@@ -15,10 +15,8 @@ const ProjectCard = ({ heading, description }) => {
           py: 10,
           backgroundColor: "var(--palette-primary-dark)",
           borderRadius: 4,
-          // ":hover": {
-          //   boxShadow: "0 0.4rem 7rem #e2e2e233",
-          //   outline: "0.1rem solid rgba(255, 255, 255, 0.288)",
-          // },
+          position: "sticky",
+          top: index * 100 + 50,
         }}
       >
         <Stack width={{ mobile: "100%", laptop: "50%" }} gap={2}>
@@ -44,6 +42,7 @@ const ProjectCard = ({ heading, description }) => {
 ProjectCard.propTypes = {
   heading: PropTypes.string,
   description: PropTypes.string,
+  index: PropTypes.number,
 };
 
 export default ProjectCard;

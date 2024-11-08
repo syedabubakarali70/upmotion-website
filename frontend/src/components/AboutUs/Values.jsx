@@ -15,25 +15,25 @@ const cardTextTransition = {
 const values = [
   {
     heading: "Integrity",
-    icon: "/values/integrity.png",
+    icon: "/Direction.svg",
     description:
       "We maintain credibility and trust within our office culture, clients, and stakeholders.",
   },
   {
     heading: "Accountability",
-    icon: "/values/accountability.png",
+    icon: "/Empowerment.svg",
     description:
       "All employees are responsible, take complete ownership of their actions, and promote a culture of accountability and trust.",
   },
   {
     heading: "Service",
-    icon: "/values/service.png",
+    icon: "/Excellence.svg",
     description:
       "We meticulously understand our client’s expectations and then provide tailored solutions to their problems.",
   },
   {
     heading: "Inclusivity",
-    icon: "/values/inclusivity.png",
+    icon: "/Growth.svg",
     description:
       "Spadasoft has an inclusive workforce with an emphasis on creating a comfortable environment for them irrespective of gender, caste, race, and religion.",
   },
@@ -69,8 +69,9 @@ const Values = () => {
                   <motion.div
                     variants={fadeUpVariants}
                     transition={cardTextTransition}
+                    style={{ width: "40px", height: "40px" }}
                   >
-                    <img src={value.icon} />
+                    <img src={value.icon} width={"100%"} height={"100%"} />
                   </motion.div>
                   <motion.div
                     variants={fadeUpVariants}
