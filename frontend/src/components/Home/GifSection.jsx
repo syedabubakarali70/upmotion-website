@@ -1,5 +1,6 @@
-import { Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import PaddingBlock from "../common/PaddingBlock";
+import { useEffect, useRef, useState } from "react";
 
 const sections = [
   {
@@ -29,50 +30,69 @@ const sections = [
 ];
 
 const GifSection = () => {
+  const containerRef = useRef(null);
+  const [isParentInView, setIsParentInView] = useState(false);
+
+  const handleScroll = () => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+
+    // Check if the container is fully visible in the viewport
+    setIsParentInView(rect.top <= 0 && rect.bottom >= window.innerHeight);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
     <PaddingBlock>
-      <Stack
-        flexDirection={{ mobile: "column", laptop: "row" }}
-        maxHeight="100vh"
-        alignItems="center"
-        sx={{ overflowY: "scroll", scrollbarWidth: "none" }}
-        py={2}
-        // position={"relative"}
-      >
+      <Box ref={containerRef} position="relative" p={3} height={"200vh"}>
         <Stack
-          sx={{
-            position: "sticky",
-            top: 0,
-            height: { mobile: "50vh", laptop: "100vh" },
-            display: "flex",
-            justifyContent: "center",
-            width: "100%",
-          }}
+          flexDirection={{ mobile: "column", laptop: "row" }}
+          maxHeight="100vh"
+          position="sticky"
+          top={0}
         >
-          <img src="/section/NTHO.gif" alt="" />
+          <Stack
+            sx={{
+              height: { mobile: "50vh", laptop: "100vh" },
+              display: "flex",
+              justifyContent: "center",
+              width: "100%",
+            }}
+          >
+            <img src="/section/NTHO.gif" alt="" />
+          </Stack>
+          <Stack
+            sx={{
+              overflowY: isParentInView ? "scroll" : "hidden", // Lock until full view
+              scrollbarWidth: "none",
+              scrollSnapType: "y mandatory",
+            }}
+            flexDirection={{ mobile: "row", laptop: "column" }}
+            width="100%"
+            minHeight="100%"
+          >
+            {sections.map(section => (
+              <Stack
+                key={section.number}
+                minWidth="100%"
+                minHeight="100%"
+                justifyContent="center"
+                sx={{ scrollSnapAlign: "start", scrollSnapStop: "always" }}
+                gap={3}
+              >
+                <Typography variant="h1">{section.number}</Typography>
+                <Typography variant="h1">{section.heading}</Typography>
+                <Typography>{section.content}</Typography>
+              </Stack>
+            ))}
+          </Stack>
         </Stack>
-        <Stack
-          sx={{ overflow: "scroll", scrollbarWidth: "none" }}
-          flexDirection={{ mobile: "row", laptop: "column" }}
-          width={"100%"}
-          //   maxHeight={"100%"}
-          border={"2px solid white"}
-        >
-          {sections.map(section => (
-            <Stack
-              key={section.number}
-              minWidth={"100%"}
-              height="70vh"
-              justifyContent="center"
-              sx={{ border: "1px solid white" }}
-            >
-              <Typography variant="h1">{section.number}</Typography>
-              <Typography>{section.heading}</Typography>
-              <Typography>{section.content}</Typography>
-            </Stack>
-          ))}
-        </Stack>
-      </Stack>
+      </Box>
     </PaddingBlock>
   );
 };
